@@ -5,7 +5,7 @@
 %global crate bitflags
 
 Name:           rust-%{crate}
-Version:        0.7.0
+Version:        0.8.0
 Release:        1%{?dist}
 Summary:        Macro to generate structures which behave like bitflags
 
@@ -49,5 +49,8 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Feb 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-1
+- Update to 0.8.0
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.0-1
 - Initial package
