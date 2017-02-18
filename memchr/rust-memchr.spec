@@ -15,6 +15,9 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
+%if ! %{with check}
+BuildRequires:  gawk >= 4.1.0
+%endif
 BuildRequires:  rust
 BuildRequires:  cargo
 BuildRequires:  crate(libc) >= 0.2.18
