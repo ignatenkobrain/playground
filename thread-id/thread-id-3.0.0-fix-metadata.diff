@@ -1,0 +1,9 @@
+--- thread-id-3.0.0/Cargo.toml	2016-10-29T19:47:54+02:00
++++ thread-id-3.0.0/Cargo.toml	2017-02-18T01:13:03.926017+01:00
+@@ -11,6 +11,3 @@
+ 
+ [target.'cfg(unix)'.dependencies]
+ libc = "0.2.6"
+-
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2.1"
