@@ -15,9 +15,6 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-%if ! %{with check}
-BuildRequires:  gawk >= 4.1.0
-%endif
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
@@ -40,10 +37,6 @@ which use %{crate} from crates.io.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
-%if ! %{with check}
-# https://github.com/rust-lang/cargo/issues/3732
-gawk -i inplace -v INPLACE_SUFFIX=.orig '/^\[dev-dependencies\]$/{f=1;next} /^\[/{f=0}; !f' Cargo.toml
-%endif
 %cargo_prep
 
 %build
@@ -51,9 +44,6 @@ gawk -i inplace -v INPLACE_SUFFIX=.orig '/^\[dev-dependencies\]$/{f=1;next} /^\[
 
 %install
 %cargo_install
-%if ! %{with check}
-install -p Cargo.toml.orig %{buildroot}%{cargo_registry}/%{crate}-%{version}/Cargo.toml
-%endif
 
 %if %{with check}
 %check
