@@ -6,14 +6,12 @@
 
 Name:           rust-%{crate}
 Version:        1.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Safe interface to memchr
 
 License:        Unlicense or MIT
 URL:            https://crates.io/crates/memchr
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# https://github.com/rust-lang/cargo/issues/3732
-Patch0:         memchr-1.0.1-drop-dev-deps.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -40,9 +38,10 @@ This package contains library source intended for building other packages
 which use %{crate} from crates.io.
 
 %prep
-%setup -q -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %if ! %{with check}
-%patch0 -p1
+# https://github.com/rust-lang/cargo/issues/3732
+gawk -i inplace -v INPLACE_SUFFIX=.orig '/^\[dev-dependencies\]$/{f=1;next} /^\[/{f=0}; !f' Cargo.toml
 %endif
 %cargo_prep
 
@@ -50,6 +49,9 @@ which use %{crate} from crates.io.
 %cargo_build
 
 %install
+%if ! %{with check}
+mv -f Cargo.toml{.orig,}
+%endif
 %cargo_install
 
 %if %{with check}
@@ -63,6 +65,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-3
+- Use awk to trim dev-dependencies and get them back before installing
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-2
 - Use patch file for dropping dependencies
 
