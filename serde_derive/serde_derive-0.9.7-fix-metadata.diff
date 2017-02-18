@@ -1,0 +1,9 @@
+--- serde_derive-0.9.7/Cargo.toml	2017-02-10T02:51:56+01:00
++++ serde_derive-0.9.7/Cargo.toml	2017-02-18T19:49:52.439144+01:00
+@@ -22,5 +22,5 @@
+ 
+ [dependencies]
+ quote = "0.3.8"
+-serde_codegen_internals = { version = "=0.13.0", default-features = false, path = "../serde_codegen_internals" }
++serde_codegen_internals = { version = "=0.13.0", default-features = false }
+ syn = { version = "0.11", features = ["aster", "visit"] }
