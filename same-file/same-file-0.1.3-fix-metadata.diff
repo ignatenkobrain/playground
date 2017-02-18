@@ -1,0 +1,12 @@
+--- same-file-0.1.3/Cargo.toml	2017-02-01T13:31:23+01:00
++++ same-file-0.1.3/Cargo.toml	2017-02-18T00:58:05.836780+01:00
+@@ -12,9 +12,5 @@
+ keywords = ["same", "file", "equal", "inode"]
+ license = "Unlicense/MIT"
+ 
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2"
+-winapi = "0.2"
+-
+ [dev-dependencies]
+ rand = "0.3"
