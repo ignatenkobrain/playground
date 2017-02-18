@@ -1,0 +1,13 @@
+--- walkdir-1.0.7/Cargo.toml	2017-01-09T03:40:26+01:00
++++ walkdir-1.0.7/Cargo.toml	2017-02-18T17:26:27.373562+01:00
+@@ -13,10 +13,6 @@
+ [dependencies]
+ same-file = "0.1.1"
+ 
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2"
+-winapi = "0.2"
+-
+ [dev-dependencies]
+ docopt = "0.7"
+ quickcheck = { version = "0.4", default-features = false }
