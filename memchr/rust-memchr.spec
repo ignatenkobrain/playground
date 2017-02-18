@@ -6,12 +6,14 @@
 
 Name:           rust-%{crate}
 Version:        1.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Safe interface to memchr
 
 License:        Unlicense or MIT
 URL:            https://crates.io/crates/memchr
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
+# https://github.com/rust-lang/cargo/issues/3732
+Patch0:         memchr-1.0.1-drop-dev-deps.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -38,12 +40,11 @@ This package contains library source intended for building other packages
 which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version} -p1
-%cargo_prep
+%setup -q -n %{crate}-%{version}
 %if ! %{with check}
-# https://github.com/rust-lang/cargo/issues/3732
-sed -i -e "/quickcheck/d" Cargo.toml
+%patch0 -p1
 %endif
+%cargo_prep
 
 %build
 %cargo_build
@@ -62,5 +63,8 @@ sed -i -e "/quickcheck/d" Cargo.toml
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-2
+- Use patch file for dropping dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-1
 - Initial package
