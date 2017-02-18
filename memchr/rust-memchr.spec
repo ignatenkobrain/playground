@@ -52,10 +52,10 @@ gawk -i inplace -v INPLACE_SUFFIX=.orig '/^\[dev-dependencies\]$/{f=1;next} /^\[
 %cargo_build
 
 %install
-%if ! %{with check}
-mv -f Cargo.toml{.orig,}
-%endif
 %cargo_install
+%if ! %{with check}
+install -p Cargo.toml.orig %{buildroot}%{cargo_registry}/%{crate}-%{version}/Cargo.toml
+%endif
 
 %if %{with check}
 %check
