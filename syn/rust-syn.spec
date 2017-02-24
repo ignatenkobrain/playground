@@ -5,38 +5,27 @@
 %global crate syn
 
 Name:           rust-%{crate}
-Version:        0.11.4
+Version:        0.11.6
 Release:        1%{?dist}
 Summary:        Nom parser for Rust source code
 
-# https://github.com/dtolnay/syn/issues/96
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syn
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# https://github.com/dtolnay/syn/pull/97
-# clippy is nightly-only
-Patch0:         syn-0.11.4-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(quote) >= 0.3.0
-BuildRequires:  crate(unicode-xid) >= 0.0.4
-BuildConflicts: crate(quote) >= 0.4.0
-BuildConflicts: crate(unicode-xid) >= 0.0.5
+BuildRequires:  (crate(quote) >= 0.3.0 with crate(quote) < 0.4.0)
+BuildRequires:  (crate(synom) >= 0.11.0 with crate(synom) < 0.12.0)
+BuildRequires:  (crate(unicode-xid) >= 0.0.4 with crate(unicode-xid) < 0.0.5)
 %if %{with check}
-BuildRequires:  crate(syntex_pos) >= 0.58.0
-BuildRequires:  crate(syntex_syntax) >= 0.58.0
-BuildRequires:  crate(tempdir) >= 0.3.5
-BuildRequires:  crate(time) >= 0.1.35
-BuildRequires:  crate(walkdir) >= 1.0.1
-BuildConflicts: crate(syntex_pos) >= 0.59.0
-BuildConflicts: crate(syntex_syntax) >= 0.59.0
-BuildConflicts: crate(tempdir) >= 0.4.0
-BuildConflicts: crate(time) >= 0.2.0
-BuildConflicts: crate(walkdir) >= 2.0.0
+BuildRequires:  (crate(syntex_pos) >= 0.58.0 with crate(syntex_pos) < 0.59.0)
+BuildRequires:  (crate(syntex_syntax) >= 0.58.0 with crate(syntex_syntax) < 0.59.0)
+BuildRequires:  (crate(tempdir) >= 0.3.5 with crate(tempdir) < 0.4.0)
+BuildRequires:  (crate(time) >= 0.1.35 with crate(time) < 0.2.0)
+BuildRequires:  (crate(walkdir) >= 1.0.1 with crate(walkdir) < 2.0.0)
 %endif
 
 %description
@@ -68,8 +57,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
+%doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.6-1
+- Update to 0.11.6
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.4-1
 - Initial package
