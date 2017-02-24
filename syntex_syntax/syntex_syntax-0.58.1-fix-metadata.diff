@@ -1,11 +1,7 @@
---- syntex_syntax-0.58.0/Cargo.toml	2017-01-27T23:23:52+01:00
-+++ syntex_syntax-0.58.0/Cargo.toml	2017-02-18T17:15:12.797226+01:00
-@@ -8,9 +8,9 @@
- include = ["Cargo.toml", "src/**/*.rs"]
- 
- [dependencies]
--bitflags = "0.7.0"
-+bitflags = "0.8.0"
+--- syntex_syntax-0.58.1/Cargo.toml	2017-02-19T22:20:01+01:00
++++ syntex_syntax-0.58.1/Cargo.toml	2017-02-24T22:27:05.554920+01:00
+@@ -12,6 +12,6 @@
+ bitflags = "0.8.0"
  log = "0.3.6"
  rustc-serialize = "0.3.16"
 -syntex_errors = { version = "0.58", path = "../syntex_errors" }
