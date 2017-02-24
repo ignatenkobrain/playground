@@ -5,7 +5,7 @@
 %global crate thread_local
 
 Name:           rust-%{crate}
-Version:        0.3.2
+Version:        0.3.3
 Release:        2%{?dist}
 Summary:        Per-object thread-local storage
 
@@ -54,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.3-2
+- Update to 0.3.3
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.2-2
 - Use rich dependencies
 
