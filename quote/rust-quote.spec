@@ -5,11 +5,10 @@
 %global crate quote
 
 Name:           rust-%{crate}
-Version:        0.3.12
+Version:        0.3.13
 Release:        1%{?dist}
 Summary:        Quasi-quoting macro quote!(...)
 
-# https://github.com/dtolnay/quote/issues/26
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/quote
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -48,8 +47,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
+%doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.13-1
+- Update to 0.3.13
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.12-1
 - Initial package
