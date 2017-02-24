@@ -5,11 +5,10 @@
 %global crate syntex_pos
 
 Name:           rust-%{crate}
-Version:        0.58.0
-Release:        2%{?dist}
+Version:        0.58.1
+Release:        1%{?dist}
 Summary:        Export of libsyntax_pos for code generation
 
-# https://github.com/serde-rs/syntex/issues/115
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_pos
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -49,9 +48,14 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
+%doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-1
+- Update to 0.58.1
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-2
 - Use rich dependencies
 
