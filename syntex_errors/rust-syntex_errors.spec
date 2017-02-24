@@ -5,16 +5,15 @@
 %global crate syntex_errors
 
 Name:           rust-%{crate}
-Version:        0.58.0
-Release:        2%{?dist}
+Version:        0.58.1
+Release:        1%{?dist}
 Summary:        Export of librustc_errors for code generation
 
-# https://github.com/serde-rs/syntex/issues/115
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_errors
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-Patch0:         syntex_errors-0.58.0-fix-metadata.diff
+Patch0:         syntex_errors-0.58.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -55,9 +54,14 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
+%doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-1
+- Update to 0.58.1
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-2
 - Use rich dependencies
 
