@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.20
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Library for types and bindings to native C
 
 License:        MIT or ASL 2.0
@@ -32,6 +32,7 @@ BuildArch:      noarch
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
+rm -vrf {.gitignore,.travis.yml,appveyor.yml,ci}
 %cargo_prep
 
 %build
@@ -51,6 +52,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.20-3
+- Strip unneeded files
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.20-2
 - Add license files
 - Fix license tag
