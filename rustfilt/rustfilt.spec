@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.1.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Demangle Rust symbols
 
 License:        ASL 2.0
@@ -16,8 +16,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(rustc-demangle) >= 0.1.2
-BuildConflicts: crate(rustc-demangle) >= 0.2.0
+BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2.0)
 
 %description
 %{summary}.
@@ -43,6 +42,9 @@ BuildConflicts: crate(rustc-demangle) >= 0.2.0
 %{_bindir}/rustfilt
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-4
+- Use rich dependencies
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-3
 - Sync with rust2rpm generator
 

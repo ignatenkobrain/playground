@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.13.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        AST representation used by Serde codegen
 
 # https://github.com/serde-rs/serde/issues/772
@@ -18,8 +18,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(syn) >= 0.11.0
-BuildConflicts: crate(syn) >= 0.12.0
+BuildRequires:  (crate(syn) >= 0.11.0 with crate(syn) < 0.12.0)
 
 %description
 %{summary}.
@@ -53,5 +52,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.13.0-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.13.0-1
 - Initial package

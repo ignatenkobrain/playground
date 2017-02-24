@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Per-object thread-local storage
 
 License:        ASL 2.0 or MIT
@@ -17,10 +17,8 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(thread-id) >= 3.0.0
-BuildRequires:  crate(unreachable) >= 0.1.0
-BuildConflicts: crate(thread-id) >= 4.0.0
-BuildConflicts: crate(unreachable) >= 0.2.0
+BuildRequires:  (crate(thread-id) >= 3.0.0 with crate(thread-id) < 4.0.0)
+BuildRequires:  (crate(unreachable) >= 0.1.0 with crate(unreachable) < 0.2.0)
 
 %description
 %{summary}.
@@ -56,5 +54,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.2-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.2-1
 - Initial package

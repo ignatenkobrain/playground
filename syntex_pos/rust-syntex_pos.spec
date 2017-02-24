@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.58.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Export of libsyntax_pos for code generation
 
 # https://github.com/serde-rs/syntex/issues/115
@@ -18,8 +18,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(rustc-serialize) >= 0.3.16
-BuildConflicts: crate(rustc-serialize) >= 0.4.0
+BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
 
 %description
 %{summary}.
@@ -53,5 +52,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-1
 - Initial package

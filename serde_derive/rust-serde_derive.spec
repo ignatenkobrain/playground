@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Macros 1.1 implementation of #[derive(Serialize, Deserialize)]
 
 # https://github.com/serde-rs/serde/issues/772
@@ -21,13 +21,9 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(quote) >= 0.3.8
+BuildRequires:  (crate(quote) >= 0.3.8 with crate(quote) < 0.4.0)
 BuildRequires:  crate(serde_codegen_internals) = 0.13.0
-BuildRequires:  crate(syn/aster) >= 0.11.0
-BuildRequires:  crate(syn/visit) >= 0.11.0
-BuildConflicts: crate(quote) >= 0.4.0
-BuildConflicts: crate(syn/aster) >= 0.12.0
-BuildConflicts: crate(syn/visit) >= 0.12.0
+BuildRequires:  ((crate(syn) >= 0.11.0 with crate(syn) < 0.12.0) with crate(syn/aster) with crate(syn/visit))
 
 %description
 %{summary}.
@@ -61,5 +57,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-1
 - Initial package

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Convert ranges of Unicode codepoints to UTF-8 byte ranges
 
 License:        Unlicense or MIT
@@ -18,8 +18,7 @@ ExclusiveArch:  %{rust_arches}
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
-BuildRequires:  crate(quickcheck) >= 0.4.1
-BuildConflicts: crate(quickcheck) >= 0.5.0
+BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
 %endif
 
 %description
@@ -56,5 +55,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.0-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.0-1
 - Initial package

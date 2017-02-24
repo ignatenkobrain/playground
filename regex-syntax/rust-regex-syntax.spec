@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Regular expression parser
 
 # https://github.com/rust-lang/regex/issues/342
@@ -20,10 +20,8 @@ ExclusiveArch:  %{rust_arches}
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
-BuildRequires:  crate(quickcheck) >= 0.4.1
-BuildRequires:  crate(rand) >= 0.3.15
-BuildConflicts: crate(quickcheck) >= 0.5.0
-BuildConflicts: crate(rand) >= 0.4.0
+BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
+BuildRequires:  (crate(rand) >= 0.3.15 with crate(rand) < 0.4.0)
 %endif
 
 %description
@@ -58,5 +56,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-1
 - Initial package

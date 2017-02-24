@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Generic serialization/deserialization framework
 
 # https://github.com/serde-rs/serde/issues/772
@@ -18,11 +18,9 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(serde_derive) >= 0.9.0
-BuildConflicts: crate(serde_derive) >= 0.10.0
+BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
 %if %{with check}
-BuildRequires:  crate(serde_derive) >= 0.9.0
-BuildConflicts: crate(serde_derive) >= 0.10.0
+BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
 %endif
 
 %description
@@ -57,5 +55,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-1
 - Initial package

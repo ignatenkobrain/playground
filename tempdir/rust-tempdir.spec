@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Library for managing a temporary directory
 
 License:        MIT or ASL 2.0
@@ -17,8 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(rand) >= 0.3.0
-BuildConflicts: crate(rand) >= 0.4.0
+BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 
 %description
 %{summary}.
@@ -51,5 +50,8 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.5-2
+- Use rich dependencies
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.5-1
 - Initial package

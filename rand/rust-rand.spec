@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.15
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Random number generators and other randomness functionality
 
 License:        MIT or ASL 2.0
@@ -17,11 +17,9 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(libc) >= 0.2.0
-BuildConflicts: crate(libc) >= 0.3.0
+BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 %if %{with check}
-BuildRequires:  crate(log) >= 0.3.0
-BuildConflicts: crate(log) >= 0.4.0
+BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
 %endif
 
 %description
@@ -55,5 +53,8 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-2
+- Use rich dependencies
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-1
 - Initial package

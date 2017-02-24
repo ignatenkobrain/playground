@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        1.0.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Safe interface to memchr
 
 License:        Unlicense or MIT
@@ -17,11 +17,9 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(libc) >= 0.2.18
-BuildConflicts: crate(libc) >= 0.3.0
+BuildRequires:  (crate(libc) >= 0.2.18 with crate(libc) < 0.3.0)
 %if %{with check}
-BuildRequires:  crate(quickcheck) >= 0.4.1
-BuildConflicts: crate(quickcheck) >= 0.5.0
+BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
 %endif
 
 %description
@@ -58,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-4
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.1-3
 - Use awk to trim dev-dependencies and get them back before installing
 

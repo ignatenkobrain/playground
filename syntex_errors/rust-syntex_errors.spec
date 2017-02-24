@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.58.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Export of librustc_errors for code generation
 
 # https://github.com/serde-rs/syntex/issues/115
@@ -20,16 +20,11 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(libc) >= 0.2.13
-BuildRequires:  crate(rustc-serialize) >= 0.3.16
-BuildRequires:  crate(syntex_pos) >= 0.58.0
-BuildRequires:  crate(term) >= 0.4.4
-BuildRequires:  crate(unicode-xid) >= 0.0.4
-BuildConflicts: crate(libc) >= 0.3.0
-BuildConflicts: crate(rustc-serialize) >= 0.4.0
-BuildConflicts: crate(syntex_pos) >= 0.59.0
-BuildConflicts: crate(term) >= 0.5.0
-BuildConflicts: crate(unicode-xid) >= 0.0.5
+BuildRequires:  (crate(libc) >= 0.2.13 with crate(libc) < 0.3.0)
+BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
+BuildRequires:  (crate(syntex_pos) >= 0.58.0 with crate(syntex_pos) < 0.59.0)
+BuildRequires:  (crate(term) >= 0.4.4 with crate(term) < 0.5.0)
+BuildRequires:  (crate(unicode-xid) >= 0.0.4 with crate(unicode-xid) < 0.0.5)
 
 %description
 %{summary}.
@@ -63,5 +58,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.0-1
 - Initial package

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Unreachable code optimization hint in stable rust
 
 License:        MIT
@@ -17,8 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  crate(void) >= 1.0.0
-BuildConflicts: crate(void) >= 2.0.0
+BuildRequires:  (crate(void) >= 1.0.0 with crate(void) < 2.0.0)
 
 %description
 %{summary}.
@@ -53,5 +52,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-2
+- Use rich dependencies
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-1
 - Initial package

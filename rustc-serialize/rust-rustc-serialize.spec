@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.22
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Generic serialization/deserialization support
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ ExclusiveArch:  %{rust_arches}
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
-BuildRequires:  crate(rand) >= 0.3.0
-BuildConflicts: crate(rand) >= 0.4.0
+BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 %endif
 
 %description
@@ -53,5 +52,8 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.22-2
+- Use rich dependencies
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.22-1
 - Initial package
