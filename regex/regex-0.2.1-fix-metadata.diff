@@ -1,0 +1,22 @@
+--- regex-0.2.1/Cargo.toml	2017-01-03T01:53:03+01:00
++++ regex-0.2.1/Cargo.toml	2017-02-25T19:10:02.768798+01:00
+@@ -20,9 +20,7 @@
+ # For managing regex caches quickly across multiple threads.
+ thread_local = "0.3.2"
+ # For parsing regular expressions.
+-regex-syntax = { path = "regex-syntax", version = "0.4.0" }
+-# For accelerating text search.
+-simd = { version = "0.1.1", optional = true }
++regex-syntax = { version = "0.4.0" }
+ # For compiling UTF-8 decoding into automata.
+ utf8-ranges = "1.0.0"
+ 
+@@ -37,8 +35,6 @@
+ [features]
+ # Enable to use the unstable pattern traits defined in std.
+ pattern = []
+-# Enable to use simd acceleration.
+-simd-accel = ["simd"]
+ 
+ [lib]
+ # There are no benchmarks in the library code itself
