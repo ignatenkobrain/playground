@@ -5,7 +5,7 @@
 %global crate serde
 
 Name:           rust-%{crate}
-Version:        0.9.8
+Version:        0.9.9
 Release:        1%{?dist}
 Summary:        Generic serialization/deserialization framework
 
@@ -56,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.9-1
+- Update to 0.9.9
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.8-1
 - Update to 0.9.8
 
