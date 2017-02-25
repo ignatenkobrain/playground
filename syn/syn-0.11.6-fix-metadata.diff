@@ -1,0 +1,11 @@
+--- syn-0.11.6/Cargo.toml	2017-02-19T22:07:40+01:00
++++ syn-0.11.6/Cargo.toml	2017-02-25T21:59:19.345324+01:00
+@@ -21,7 +21,7 @@
+ [dependencies]
+ quote = { version = "0.3", optional = true }
+ unicode-xid = { version = "0.0.4", optional = true }
+-synom = { version = "0.11", path = "synom", optional = true }
++synom = { version = "0.11", optional = true }
+ 
+ [dev-dependencies]
+ syntex_pos = "0.58"

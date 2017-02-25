@@ -12,6 +12,9 @@ Summary:        Nom parser for Rust source code
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syn
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
+# Initial patched metadata
+# * No paths
+Patch0:         syn-0.11.6-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
