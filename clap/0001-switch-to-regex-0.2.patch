@@ -1,0 +1,49 @@
+From 06a8f0c4e659b861df8222076d09c01b6c61177d Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <ignatenko@redhat.com>
+Date: Sun, 26 Feb 2017 00:09:55 +0100
+Subject: [PATCH] switch to regex 0.2
+
+Signed-off-by: Igor Gnatenko <ignatenko@redhat.com>
+---
+ Cargo.toml   | 2 +-
+ clap-test.rs | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index b79032b..c9109e5 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,7 +27,7 @@ libc      = { version = "0.2.20",  optional = true }
+ yaml-rust = { version = "0.3.5",  optional = true }
+ 
+ [dev-dependencies]
+-regex = "~0.1.80"
++regex = "0.2"
+ 
+ [features]
+ default     = ["suggestions", "color", "wrap_help"]
+diff --git a/clap-test.rs b/clap-test.rs
+index 918a00e..ebbf9ea 100644
+--- a/clap-test.rs
++++ b/clap-test.rs
+@@ -12,8 +12,8 @@ mod test {
+               S2: AsRef<str> {
+         let re = Regex::new("\x1b[^m]*m").unwrap();
+         // Strip out any mismatching \r character on windows that might sneak in on either side
+-        let left = re.replace_all(&l.as_ref().trim().replace("\r", "")[..], "");
+-        let right = re.replace_all(&r.as_ref().trim().replace("\r", "")[..], "");
++        let left = re.replace_all(&l.as_ref().trim().replace("\r", "")[..], "").into_owned();
++        let right = re.replace_all(&r.as_ref().trim().replace("\r", "")[..], "").into_owned();
+         let b = left == right;
+         if !b {
+             println!("");
+@@ -69,4 +69,4 @@ mod test {
+                                     .arg_from_usage("-o --option [scoption]... 'tests options'")
+                                     .arg_from_usage("[scpositional] 'tests positionals'"))
+     }
+-}
+\ No newline at end of file
++}
+-- 
+2.11.1
+
