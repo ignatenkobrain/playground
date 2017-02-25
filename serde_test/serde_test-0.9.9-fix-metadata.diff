@@ -1,0 +1,11 @@
+--- serde_test-0.9.9/Cargo.toml	2017-02-24T22:59:25+01:00
++++ serde_test-0.9.9/Cargo.toml	2017-02-25T21:25:47.087829+01:00
+@@ -12,7 +12,7 @@
+ include = ["Cargo.toml", "src/**/*.rs", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
+ 
+ [dependencies]
+-serde = { version = "0.9", path = "../serde" }
++serde = { version = "0.9" }
+ 
+ [badges]
+ travis-ci = { repository = "serde-rs/serde" }
