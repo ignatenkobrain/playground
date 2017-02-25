@@ -1,0 +1,9 @@
+--- yaml-rust-0.3.5/Cargo.toml	2016-11-25T10:16:13+01:00
++++ yaml-rust-0.3.5/Cargo.toml	2017-02-25T21:21:48.302971+01:00
+@@ -12,5 +12,4 @@
+ preserve_order = ["linked-hash-map"]
+ 
+ [dependencies]
+-clippy = { version = "^0.*", optional = true }
+-linked-hash-map = { version = ">=0.0.9, <0.4", optional = true }
++linked-hash-map = { version = ">=0.0.9, <0.5", optional = true }
