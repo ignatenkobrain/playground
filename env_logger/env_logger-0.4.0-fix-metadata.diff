@@ -1,0 +1,11 @@
+--- env_logger-0.4.0/Cargo.toml	2017-01-15T19:44:38+01:00
++++ env_logger-0.4.0/Cargo.toml	2017-02-25T19:32:26.843291+01:00
+@@ -12,7 +12,7 @@
+ """
+ 
+ [dependencies]
+-log = { version = "0.3", path = ".." }
++log = { version = "0.3" }
+ regex = { version = "0.2", optional = true }
+ 
+ [[test]]
