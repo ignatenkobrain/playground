@@ -1,5 +1,5 @@
---- serde_derive-0.9.8/Cargo.toml	2017-02-21T19:59:22+01:00
-+++ serde_derive-0.9.8/Cargo.toml	2017-02-24T22:16:15.864863+01:00
+--- serde_derive-0.9.9/Cargo.toml	2017-02-24T22:59:25+01:00
++++ serde_derive-0.9.9/Cargo.toml	2017-02-25T21:30:20.860934+01:00
 @@ -23,5 +23,5 @@
  
  [dependencies]
