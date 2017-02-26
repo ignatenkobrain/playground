@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.1.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
@@ -42,6 +42,9 @@ BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2
 %{_bindir}/rustfilt
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-5
+- Rebuild (rustc-demangle)
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-4
 - Use rich dependencies
 
