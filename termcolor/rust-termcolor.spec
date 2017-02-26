@@ -5,15 +5,16 @@
 %global crate termcolor
 
 Name:           rust-%{crate}
-Version:        0.2.0
+Version:        0.3.0
 Release:        1%{?dist}
 Summary:        Simple cross platform library for writing colored text to a terminal
 
-License:        MIT or Unlicense
+# https://github.com/BurntSushi/ripgrep/issues/381
+License:        Unlicense or MIT
 URL:            https://crates.io/crates/termcolor
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-Patch0:         termcolor-0.2.0-fix-metadata.diff
+Patch0:         termcolor-0.3.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -53,5 +54,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.0-1
+- Update to 0.3.0
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-1
 - Initial package
