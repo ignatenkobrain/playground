@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -63,5 +63,8 @@ the raw performance of grep with the usability of the silver searcher.
 %{_bindir}/rg
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-2
+- Rebuild (memmap)
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-1
 - Initial package
