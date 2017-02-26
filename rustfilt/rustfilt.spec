@@ -6,7 +6,7 @@
 Name:           %{crate}
 Version:        0.1.1
 Release:        4%{?dist}
-Summary:        Demangle Rust symbols
+Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
 URL:            https://crates.io/crates/rustfilt
@@ -22,7 +22,7 @@ BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2
 %{summary}.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
