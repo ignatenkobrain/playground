@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        1.0.13
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Bindings to the system libz library (also known as zlib)
 
 License:        MIT or ASL 2.0
@@ -20,8 +20,10 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  (crate(gcc) >= 0.3.17 with crate(gcc) < 0.4.0)
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
+# [build-dependencies]
+BuildRequires:  (crate(gcc) >= 0.3.17 with crate(gcc) < 0.4.0)
 BuildRequires:  (crate(pkg-config) >= 0.3.0 with crate(pkg-config) < 0.4.0)
 BuildRequires:  pkgconfig(zlib)
 
@@ -62,5 +64,8 @@ rm -vrf src/zlib-*/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.13-2
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.13-1
 - Initial package
