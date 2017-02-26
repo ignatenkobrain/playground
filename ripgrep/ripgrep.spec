@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.4.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -54,6 +54,7 @@ the raw performance of grep with the usability of the silver searcher.
 
 %install
 %cargo_install
+install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 
 %if %{with check}
 %check
@@ -64,8 +65,12 @@ the raw performance of grep with the usability of the silver searcher.
 %license LICENSE-MIT UNLICENSE COPYING
 %doc README.md CHANGELOG.md
 %{_bindir}/rg
+%{_mandir}/man1/rg.1*
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-4
+- Ship manpage
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-3
 - Rebuild (termcolor)
 
