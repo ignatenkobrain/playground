@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.4.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -24,13 +24,12 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(bytecount) >= 0.1.4 with crate(bytecount) < 0.2.0)
 BuildRequires:  (crate(clap) >= 2.19.0 with crate(clap) < 3.0.0)
-BuildRequires:  (crate(clap) >= 2.18.0 with crate(clap) < 3.0.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
 BuildRequires:  (crate(grep) >= 0.1.5 with crate(grep) < 0.2.0)
 BuildRequires:  (crate(ignore) >= 0.1.7 with crate(ignore) < 0.2.0)
-BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
@@ -40,6 +39,9 @@ BuildRequires:  (crate(num_cpus) >= 1.0.0 with crate(num_cpus) < 2.0.0)
 BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
 BuildRequires:  (crate(same-file) >= 0.1.1 with crate(same-file) < 0.2.0)
 BuildRequires:  (crate(termcolor) >= 0.3.0 with crate(termcolor) < 0.4.0)
+# [build-dependencies]
+BuildRequires:  (crate(clap) >= 2.18.0 with crate(clap) < 3.0.0)
+BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 
 %description
 Line oriented search tool using Rust's regex library. Combines
@@ -68,6 +70,9 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-5
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-4
 - Ship manpage
 
