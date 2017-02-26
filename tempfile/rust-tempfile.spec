@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        2.1.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Securely create temporary files
 
 License:        MIT or ASL 2.0
@@ -20,8 +20,10 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
+# [build-dependencies]
 BuildRequires:  (crate(rustc_version) >= 0.1.4 with crate(rustc_version) < 0.2.0)
 
 %description
@@ -58,5 +60,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.1.5-2
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.1.5-1
 - Initial package
