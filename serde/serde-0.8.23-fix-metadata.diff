@@ -1,0 +1,10 @@
+--- serde-0.8.23/Cargo.toml	2017-01-21T00:25:34+01:00
++++ serde-0.8.23/Cargo.toml	2017-02-25T23:08:43.283852+01:00
+@@ -19,7 +19,3 @@
+ unstable = []
+ alloc = ["unstable"]
+ collections = ["alloc"]
+-unstable-testing = ["clippy", "unstable", "std"]
+-
+-[dependencies]
+-clippy = { version = "^0.*", optional = true }
