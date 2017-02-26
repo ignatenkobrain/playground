@@ -1,5 +1,5 @@
 --- ripgrep-0.4.0/Cargo.toml	2017-01-14T05:45:50+01:00
-+++ ripgrep-0.4.0/Cargo.toml	2017-02-26T00:48:34.097947+01:00
++++ ripgrep-0.4.0/Cargo.toml	2017-02-26T09:40:30.431138+01:00
 @@ -27,9 +27,9 @@
  [dependencies]
  bytecount = "0.1.4"
@@ -22,7 +22,7 @@
 -[target.'cfg(windows)'.dependencies]
 -kernel32-sys = "0.2.2"
 -winapi = "0.2.8"
-+termcolor = { version = "0.2.0" }
++termcolor = { version = "0.3.0" }
  
  [build-dependencies]
  clap = "2.18"

@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.4.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -15,7 +15,10 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 # * No windows
 # * No simd
 # * Bump env_logger, https://github.com/BurntSushi/ripgrep/pull/382
+# * Bump termcolor, https://github.com/BurntSushi/ripgrep/commit/a114b860635c98198d53e6ba8ed37c88df2c5cc3
 Patch0:         ripgrep-0.4.0-fix-metadata.diff
+# Fix build with new termcolor, https://github.com/BurntSushi/ripgrep/commit/22cb644eb6fc7872c1a0e5e084791b87382014b4
+Patch1:         0001-termcolor-add-support-for-output-to-standard-error.patch
 
 ExclusiveArch:  %{rust_arches}
 
@@ -36,7 +39,7 @@ BuildRequires:  (crate(memmap) >= 0.5.0 with crate(memmap) < 0.6.0)
 BuildRequires:  (crate(num_cpus) >= 1.0.0 with crate(num_cpus) < 2.0.0)
 BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
 BuildRequires:  (crate(same-file) >= 0.1.1 with crate(same-file) < 0.2.0)
-BuildRequires:  (crate(termcolor) >= 0.2.0 with crate(termcolor) < 0.3.0)
+BuildRequires:  (crate(termcolor) >= 0.3.0 with crate(termcolor) < 0.4.0)
 
 %description
 Line oriented search tool using Rust's regex library. Combines
@@ -63,6 +66,9 @@ the raw performance of grep with the usability of the silver searcher.
 %{_bindir}/rg
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-3
+- Rebuild (termcolor)
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-2
 - Rebuild (memmap)
 
