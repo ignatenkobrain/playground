@@ -1,0 +1,12 @@
+--- rayon-0.6.0/Cargo.toml	2016-12-21T10:26:33+01:00
++++ rayon-0.6.0/Cargo.toml	2017-02-26T17:15:07.139919+01:00
+@@ -6,9 +6,6 @@
+ license = "Apache-2.0/MIT"
+ repository = "https://github.com/nikomatsakis/rayon"
+ documentation = "https://docs.rs/rayon/"
+-
+-[workspace]
+-members = [ "rayon-demo" ]
+ 
+ [dependencies]
+ rand = "0.3"
