@@ -8,7 +8,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        FFI bindings to OpenSSL
 
 License:        MIT
@@ -22,8 +22,10 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  (crate(gcc) >= 0.3.42 with crate(gcc) < 0.4.0)
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
+# [build-dependencies]
+BuildRequires:  (crate(gcc) >= 0.3.42 with crate(gcc) < 0.4.0)
 BuildRequires:  (crate(pkg-config) >= 0.3.9 with crate(pkg-config) < 0.4.0)
 BuildRequires:  pkgconfig(openssl) >= %{openssl_min}
 
@@ -61,5 +63,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-2
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-1
 - Initial package
