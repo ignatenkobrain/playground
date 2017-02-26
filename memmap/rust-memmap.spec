@@ -5,15 +5,15 @@
 %global crate memmap
 
 Name:           rust-%{crate}
-Version:        0.5.0
-Release:        2%{?dist}
+Version:        0.5.2
+Release:        1%{?dist}
 Summary:        Cross-platform Rust API for memory-mapped file IO
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/memmap
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-Patch0:         memmap-0.5.0-fix-metadata.diff
+Patch0:         memmap-0.5.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -58,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-1
+- Update to 0.5.2
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-2
 - Use rich dependencies
 
