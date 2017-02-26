@@ -1,0 +1,25 @@
+From 67589a06aeb45eca17d94c1ad4b75ee51a16e5f2 Mon Sep 17 00:00:00 2001
+From: Steven Allen <steven@stebalien.com>
+Date: Sun, 26 Feb 2017 23:28:01 -0800
+Subject: [PATCH 2/2] Really fix tests with selinux.
+
+---
+ tests/main.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/main.rs b/tests/main.rs
+index f1dd7069..2019aa98 100644
+--- a/tests/main.rs
++++ b/tests/main.rs
+@@ -43,7 +43,7 @@ fn test_path() {
+     assert!(xattr::get(tmp.path(), "user.test").is_err());
+     assert_eq!(xattr::list(tmp.path())
+                .unwrap()
+-               .map(|x| x.as_bytes().starts_with(b"user."))
++               .filter(|x| x.as_bytes().starts_with(b"user."))
+                .count(), 0);
+ 
+     xattr::set(tmp.path(), "user.test", b"my test").unwrap();
+-- 
+2.11.1
+
