@@ -5,7 +5,7 @@
 
 Name:           %{crate}
 Version:        0.7.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
 # https://github.com/rust-lang-nursery/rustfmt/issues/1340
@@ -24,6 +24,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(diff) >= 0.1.0 with crate(diff) < 0.2.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
 BuildRequires:  (crate(getopts) >= 0.2.0 with crate(getopts) < 0.3.0)
@@ -39,6 +40,7 @@ BuildRequires:  (crate(syntex_syntax) >= 0.58.0 with crate(syntex_syntax) < 0.59
 BuildRequires:  (crate(term) >= 0.4.0 with crate(term) < 0.5.0)
 BuildRequires:  (crate(toml) >= 0.2.1 with crate(toml) < 0.3.0)
 BuildRequires:  (crate(unicode-segmentation) >= 1.0.0 with crate(unicode-segmentation) < 2.0.0)
+# [build-dependencies]
 BuildRequires:  (crate(walkdir) >= 1.0.3 with crate(walkdir) < 2.0.0)
 
 %description
@@ -77,5 +79,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.1-2
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.1-1
 - Initial package
