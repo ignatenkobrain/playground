@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Native bindings to the libssh2 library
 
 # https://github.com/alexcrichton/ssh2-rs/issues/55
@@ -18,10 +18,12 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
-BuildRequires:  (crate(cmake) >= 0.1.2 with crate(cmake) < 0.2.0)
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 BuildRequires:  crate(libz-sys) >= 0.0.0
 BuildRequires:  (crate(openssl-sys) >= 0.9.0 with crate(openssl-sys) < 0.10.0)
+# [build-dependencies]
+BuildRequires:  (crate(cmake) >= 0.1.2 with crate(cmake) < 0.2.0)
 BuildRequires:  (crate(pkg-config) >= 0.3.0 with crate(pkg-config) < 0.4.0)
 BuildRequires:  pkgconfig(libssh2)
 
@@ -60,5 +62,8 @@ rm -vrf libssh2/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.5-2
+- Rebuild
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.5-1
 - Initial package
