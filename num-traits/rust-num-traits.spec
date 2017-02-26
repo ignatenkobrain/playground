@@ -5,11 +5,10 @@
 %global crate num-traits
 
 Name:           rust-%{crate}
-Version:        0.1.36
+Version:        0.1.37
 Release:        1%{?dist}
 Summary:        Numeric traits for generic mathematics
 
-# https://github.com/rust-num/num/issues/266
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/num-traits
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -48,8 +47,12 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Feb 27 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.37-1
+- Update to 0.1.37
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-1
 - Initial package
