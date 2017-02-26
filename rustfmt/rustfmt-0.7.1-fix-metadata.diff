@@ -1,0 +1,10 @@
+--- rustfmt-0.7.1/Cargo.toml	2017-01-19T20:21:35+01:00
++++ rustfmt-0.7.1/Cargo.toml	2017-02-26T14:19:41.569049+01:00
+@@ -35,7 +35,3 @@
+ 
+ [target.'cfg(unix)'.dependencies]
+ libc = "0.2.11"
+-
+-[target.'cfg(windows)'.dependencies]
+-kernel32-sys = "0.2.2"
+-winapi = "0.2.7"
