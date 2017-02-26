@@ -5,9 +5,9 @@
 %global crate rustc-demangle
 
 Name:           rust-%{crate}
-Version:        0.1.3
-Release:        3%{?dist}
-Summary:        Demangle Rust compiler symbol names
+Version:        0.1.4
+Release:        1%{?dist}
+Summary:        Rust compiler symbol demangling
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/rustc-demangle
@@ -26,10 +26,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+Rust compiler symbol demangling.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
@@ -49,6 +52,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-1
+- Update to 0.1.4
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.3-3
 - Sync with rust2rpm generator
 
