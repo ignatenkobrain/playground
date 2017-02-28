@@ -5,7 +5,7 @@
 %global crate toml
 
 Name:           rust-%{crate}
-Version:        0.3.0
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        Native Rust encoder and decoder of TOML-formatted files and streams
 
@@ -17,8 +17,10 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(serde) >= 0.9.6 with crate(serde) < 0.10.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
 BuildRequires:  (crate(serde_json) >= 0.9.0 with crate(serde_json) < 0.10.0)
 %endif
@@ -59,5 +61,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.1-1
+- Update to 0.3.1
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.0-1
 - Initial package
