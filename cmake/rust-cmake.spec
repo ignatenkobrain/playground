@@ -5,7 +5,7 @@
 %global crate cmake
 
 Name:           rust-%{crate}
-Version:        0.1.20
+Version:        0.1.21
 Release:        1%{?dist}
 Summary:        Build dependency for running `cmake` to build a native library
 
@@ -17,7 +17,9 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(gcc) >= 0.3.17 with crate(gcc) < 0.4.0)
+BuildRequires:  %{_bindir}/cmake
 
 %description
 %{summary}.
@@ -54,5 +56,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.21-1
+- Update to 0.1.21
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.20-1
 - Initial package
