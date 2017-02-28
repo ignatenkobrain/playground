@@ -5,20 +5,19 @@
 %global crate vec_map
 
 Name:           rust-%{crate}
-Version:        0.6.0
+Version:        0.7.0
 Release:        1%{?dist}
 Summary:        Simple map based on a vector for small integer keys
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/vec_map
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# https://github.com/contain-rs/vec-map/pull/25
-Patch0:         0001-bump-serde-to-0.9.patch
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
 BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
 
@@ -56,5 +55,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.0-1
+- Update to 0.7.0
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-1
 - Initial package

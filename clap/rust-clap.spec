@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        2.20.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple to use, efficient, and full featured  Command Line Argument Parser
 
 License:        MIT
@@ -15,6 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 # Initial patched metadata
 # * clippy is nightly
 # * bump bitflags, https://github.com/kbknapp/clap-rs/pull/875
+# * bump vec_map, https://github.com/kbknapp/clap-rs/pull/881
 Patch0:         clap-2.20.5-fix-metadata.diff
 # https://github.com/kbknapp/clap-rs/pull/876
 Patch1:         0001-switch-to-regex-0.2.patch
@@ -23,6 +24,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(ansi_term) >= 0.9.0 with crate(ansi_term) < 0.10.0)
 BuildRequires:  (crate(bitflags) >= 0.8.0 with crate(bitflags) < 0.9.0)
 BuildRequires:  (crate(libc) >= 0.2.20 with crate(libc) < 0.3.0)
@@ -30,9 +32,10 @@ BuildRequires:  (crate(strsim) >= 0.6.0 with crate(strsim) < 0.7.0)
 BuildRequires:  (crate(term_size) >= 0.2.2 with crate(term_size) < 0.3.0)
 BuildRequires:  (crate(unicode-segmentation) >= 1.0.1 with crate(unicode-segmentation) < 2.0.0)
 BuildRequires:  (crate(unicode-width) >= 0.1.4 with crate(unicode-width) < 0.2.0)
-BuildRequires:  (crate(vec_map) >= 0.6.0 with crate(vec_map) < 0.7.0)
+BuildRequires:  (crate(vec_map) >= 0.7.0 with crate(vec_map) < 0.8.0)
 BuildRequires:  (crate(yaml-rust) >= 0.3.5 with crate(yaml-rust) < 0.4.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(regex) >= 0.2.0 with crate(regex) < 0.3.0)
 %endif
 
@@ -70,5 +73,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.20.5-2
+- Rebuild (vec_map)
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.20.5-1
 - Initial package

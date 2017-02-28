@@ -1,14 +1,16 @@
 --- clap-2.20.5/Cargo.toml	2017-02-18T17:43:08+01:00
-+++ clap-2.20.5/Cargo.toml	2017-02-26T00:13:36.851478+01:00
-@@ -16,7 +16,7 @@
++++ clap-2.20.5/Cargo.toml	2017-02-28T12:59:42.854289+01:00
+@@ -16,8 +16,8 @@
  """
  
  [dependencies]
 -bitflags              = "0.7.0"
+-vec_map               = "0.6.0"
 +bitflags              = "0.8.0"
- vec_map               = "0.6.0"
++vec_map               = "0.7.0"
  unicode-width         = "0.1.4"
  unicode-segmentation  = "1.0.1"
+ strsim    = { version = "0.6.0",  optional = true }
 @@ -25,7 +25,6 @@
  term_size = { version = "0.2.2",  optional = true }
  libc      = { version = "0.2.20",  optional = true }
