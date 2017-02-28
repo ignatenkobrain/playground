@@ -5,17 +5,13 @@
 %global crate xattr
 
 Name:           rust-%{crate}
-Version:        0.1.10
+Version:        0.1.11
 Release:        1%{?dist}
 Summary:        UNIX extended filesystem attributes
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/xattr
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# https://github.com/Stebalien/xattr/commit/bc889657d136489898fd2002c7eff887f5ea636d
-Patch0001:      0001-Ignore-non-user-xattrs-in-tests.patch
-# https://github.com/Stebalien/xattr/commit/67589a06aeb45eca17d94c1ad4b75ee51a16e5f2
-Patch0002:      0002-Really-fix-tests-with-selinux.patch
 
 ExclusiveArch:  %{rust_arches}
 
@@ -62,5 +58,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.11-1
+- Update to 0.1.11
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.10-1
 - Initial package
