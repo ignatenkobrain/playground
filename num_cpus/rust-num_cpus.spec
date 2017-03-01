@@ -5,8 +5,8 @@
 %global crate num_cpus
 
 Name:           rust-%{crate}
-Version:        1.2.1
-Release:        2%{?dist}
+Version:        1.3.0
+Release:        1%{?dist}
 Summary:        Get the number of CPUs on a machine
 
 License:        MIT or ASL 2.0
@@ -17,6 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 
 %description
@@ -27,10 +28,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+Get the number of CPUs on a machine.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
