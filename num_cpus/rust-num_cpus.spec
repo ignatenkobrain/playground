@@ -54,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 01 2017 Igor Gnatenko <ignatenkobrain@gmail.com> - 1.3.0-1
+- Update to 1.3.0
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.1-2
 - Use rich dependencies
 
