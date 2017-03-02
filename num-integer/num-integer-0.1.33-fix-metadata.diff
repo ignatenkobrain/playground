@@ -1,0 +1,8 @@
+--- num-integer-0.1.33/Cargo.toml	2017-02-26T22:16:14+01:00
++++ num-integer-0.1.33/Cargo.toml	2017-03-02T10:15:39.953178+01:00
+@@ -10,5 +10,4 @@
+ version = "0.1.33"
+ 
+ [dependencies.num-traits]
+-path = "../traits"
+ version = "0.1.32"
