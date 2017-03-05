@@ -1,0 +1,9 @@
+--- libc-0.2.21/Cargo.toml	2017-03-02T03:44:01+01:00
++++ libc-0.2.21/Cargo.toml	2017-03-05T14:35:31.289058+01:00
+@@ -16,6 +16,3 @@
+ [features]
+ default = ["use_std"]
+ use_std = []
+-
+-[workspace]
+-members = ["libc-test", "libc-test/generate-files"]
