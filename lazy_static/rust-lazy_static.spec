@@ -5,8 +5,8 @@
 %global crate lazy_static
 
 Name:           rust-%{crate}
-Version:        0.2.2
-Release:        2%{?dist}
+Version:        0.2.4
+Release:        1%{?dist}
 Summary:        Macro for declaring lazily evaluated statics in Rust
 
 License:        MIT
@@ -17,6 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(spin) >= 0.4.0 with crate(spin) < 0.5.0)
 
 %description
@@ -53,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.4-1
+- Update to 0.2.4
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.2-2
 - Use rich dependencies
 
