@@ -6,7 +6,7 @@
 %global crate synom
 
 Name:           rust-%{crate}
-Version:        0.11.2
+Version:        0.11.3
 Release:        1%{?dist}
 Summary:        Stripped-down Nom parser used by Syn
 
@@ -15,7 +15,7 @@ URL:            https://crates.io/crates/synom
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         synom-0.11.2-fix-metadata.diff
+Patch0:         synom-0.11.3-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -62,6 +62,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.3-1
+- Update to 0.11.3
+
 * Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.2-1
 - Update to 0.11.2
 
