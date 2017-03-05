@@ -6,12 +6,11 @@
 %global crate diff
 
 Name:           rust-%{crate}
-Version:        0.1.9
+Version:        0.1.10
 Release:        1%{?dist}
 Summary:        LCS based slice and string diffing implementation
 
-# https://github.com/utkarshkukreti/diff.rs/issues/9
-License:        MIT
+License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/diff
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 
@@ -20,8 +19,9 @@ ExclusiveArch:  %{rust_arches}
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
-BuildRequires:  (crate(quickcheck) >= 0.2.16 with crate(quickcheck) < 0.3.0)
-BuildRequires:  (crate(speculate) >= 0.0.19 with crate(speculate) < 0.0.20)
+# [dev-dependencies]
+BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
+BuildRequires:  (crate(speculate) >= 0.0.24 with crate(speculate) < 0.0.25)
 %endif
 
 %description
@@ -53,9 +53,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.10-1
+- Update to 0.1.10
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.9-1
 - Initial package
