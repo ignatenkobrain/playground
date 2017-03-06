@@ -5,7 +5,7 @@
 %global crate serde_test
 
 Name:           rust-%{crate}
-Version:        0.9.10
+Version:        0.9.11
 Release:        1%{?dist}
 Summary:        Token De/Serializer for testing De/Serialize implementations
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/serde_test
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         serde_test-0.9.10-fix-metadata.diff
+Patch0:         serde_test-0.9.11-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -57,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Mar 06 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.11-1
+- Update to 0.9.11
+
 * Wed Mar 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-1
 - Update to 0.9.10
 
