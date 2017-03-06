@@ -5,7 +5,7 @@
 %global crate serde_derive
 
 Name:           rust-%{crate}
-Version:        0.9.10
+Version:        0.9.11
 Release:        1%{?dist}
 Summary:        Macros 1.1 implementation of #[derive(Serialize, Deserialize)]
 
@@ -13,8 +13,8 @@ License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/serde_derive
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-# [workspace] path
-Patch0:         serde_derive-0.9.10-fix-metadata.diff
+# * No paths
+Patch0:         serde_derive-0.9.11-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -59,6 +59,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Mar 06 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.11-1
+- Update to 0.9.11
+
 * Wed Mar 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-1
 - Update to 0.9.10
 
