@@ -5,7 +5,7 @@
 %global crate syn
 
 Name:           rust-%{crate}
-Version:        0.11.8
+Version:        0.11.9
 Release:        1%{?dist}
 Summary:        Nom parser for Rust source code
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/syn
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         syn-0.11.8-fix-metadata.diff
+Patch0:         syn-0.11.9-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -67,6 +67,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Tue Mar 07 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.9-1
+- Update to 0.11.9
+
 * Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.8-1
 - Update to 0.11.8
 

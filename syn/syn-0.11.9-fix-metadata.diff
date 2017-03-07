@@ -1,5 +1,5 @@
---- syn-0.11.8/Cargo.toml	2017-02-27T21:05:18+01:00
-+++ syn-0.11.8/Cargo.toml	2017-02-28T12:16:20.151673+01:00
+--- syn-0.11.9/Cargo.toml	2017-03-06T17:41:39+01:00
++++ syn-0.11.9/Cargo.toml	2017-03-07T10:15:39.656981+01:00
 @@ -21,7 +21,7 @@
  [dependencies]
  quote = { version = "0.3.7", optional = true }
