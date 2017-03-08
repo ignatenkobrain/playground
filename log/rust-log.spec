@@ -5,9 +5,9 @@
 %global crate log
 
 Name:           rust-%{crate}
-Version:        0.3.6
+Version:        0.3.7
 Release:        1%{?dist}
-Summary:        A lightweight logging facade for Rust
+Summary:        Lightweight logging facade for Rust
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/log
@@ -26,10 +26,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+A lightweight logging facade for Rust.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
@@ -49,5 +52,8 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 08 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.7-1
+- Update to 0.3.7
+
 * Sun Feb 12 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.6-1
 - Initial package
