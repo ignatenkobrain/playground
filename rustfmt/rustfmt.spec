@@ -4,21 +4,16 @@
 %global crate rustfmt
 
 Name:           %{crate}
-Version:        0.7.1
-Release:        2%{?dist}
+Version:        0.8.0
+Release:        1%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
-# https://github.com/rust-lang-nursery/rustfmt/issues/1340
 License:        ASL 2.0 or MIT
 URL:            https://crates.io/crates/rustfmt
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No windows
-Patch0:         rustfmt-0.7.1-fix-metadata.diff
-# https://github.com/rust-lang-nursery/rustfmt/pull/1338
-Patch1:         0001-bump-env_logger-to-0.4.patch
-Patch2:         0002-bump-regex-to-0.2.patch
-Patch3:         0003-bump-syntex_-to-0.58.patch
+Patch0:         rustfmt-0.8.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -76,9 +71,13 @@ which use %{crate} from crates.io.
 %{_bindir}/cargo-fmt
 
 %files       -n rust-%{crate}-devel
+%license LICENSE-APACHE LICENSE-MIT
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 08 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-1
+- Update to 0.8.0
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.1-2
 - Rebuild
 
