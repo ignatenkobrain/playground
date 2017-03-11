@@ -3,9 +3,9 @@
 
 %global crate ripgrep
 
-Name:           %{crate}
+Name:           rust-%{crate}
 Version:        0.4.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -44,6 +44,12 @@ BuildRequires:  (crate(clap) >= 2.18.0 with crate(clap) < 3.0.0)
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 
 %description
+%{summary}.
+
+%package     -n %{crate}
+Summary:        %{summary}
+
+%description -n %{crate}
 Line oriented search tool using Rust's regex library. Combines
 the raw performance of grep with the usability of the silver searcher.
 
@@ -63,13 +69,16 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %cargo_test
 %endif
 
-%files
+%files       -n %{crate}
 %license LICENSE-MIT UNLICENSE COPYING
 %doc README.md CHANGELOG.md
 %{_bindir}/rg
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Sat Mar 11 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-6
+- Rename with rust prefix
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-5
 - Rebuild
 
