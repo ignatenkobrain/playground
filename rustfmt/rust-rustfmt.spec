@@ -3,9 +3,9 @@
 
 %global crate rustfmt
 
-Name:           %{crate}
+Name:           rust-%{crate}
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
 License:        ASL 2.0 or MIT
@@ -41,11 +41,17 @@ BuildRequires:  (crate(walkdir) >= 1.0.3 with crate(walkdir) < 2.0.0)
 %description
 %{summary}.
 
-%package     -n rust-%{crate}-devel
+%package     -n %{crate}
+Summary:        %{summary}
+
+%description -n %{crate}
+%{summary}.
+
+%package        devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n rust-%{crate}-devel
+%description    devel
 Tool to find and fix Rust formatting issues.
 
 This package contains library source intended for building other packages
@@ -66,15 +72,18 @@ which use %{crate} from crates.io.
 %cargo_test
 %endif
 
-%files
+%files       -n %{crate}
 %{_bindir}/rustfmt
 %{_bindir}/cargo-fmt
 
-%files       -n rust-%{crate}-devel
+%files          devel
 %license LICENSE-APACHE LICENSE-MIT
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Mar 11 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-2
+- Rename with rust prefix
+
 * Wed Mar 08 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-1
 - Update to 0.8.0
 
