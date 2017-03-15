@@ -3,9 +3,9 @@
 
 %global crate rustfilt
 
-Name:           %{crate}
+Name:           rust-%{crate}
 Version:        0.1.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
@@ -16,9 +16,16 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2.0)
 
 %description
+%{summary}.
+
+%package     -n %{crate}
+Summary:        %{summary}
+
+%description -n %{crate}
 %{summary}.
 
 %prep
@@ -36,12 +43,15 @@ BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2
 %cargo_test
 %endif
 
-%files
+%files       -n %{crate}
 %license LICENSE
 %doc README.md
 %{_bindir}/rustfilt
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-6
+- Rename with rust prefix
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-5
 - Rebuild (rustc-demangle)
 
