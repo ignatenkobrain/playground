@@ -5,7 +5,7 @@
 %global crate gcc
 
 Name:           rust-%{crate}
-Version:        0.3.43
+Version:        0.3.44
 Release:        1%{?dist}
 Summary:        Build-time dependency for Cargo to assist in invoking the native C compiler
 
@@ -17,10 +17,14 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(rayon) >= 0.6.0 with crate(rayon) < 0.7.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(tempdir) >= 0.3.0 with crate(tempdir) < 0.4.0)
 %endif
+BuildRequires:  %{_bindir}/gcc
+BuildRequires:  %{_bindir}/g++
 
 %description
 %{summary}.
@@ -53,7 +57,7 @@ rm -vf %{buildroot}%{_bindir}/gcc-shim
 
 %if %{with check}
 %check
-# https://github.com/alexcrichton/gcc-rs/issues/140
+# https://github.com/alexcrichton/gcc-rs/issues/144
 %cargo_test || :
 %endif
 
@@ -63,5 +67,8 @@ rm -vf %{buildroot}%{_bindir}/gcc-shim
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.44-1
+- Update to 0.3.44
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.43-1
 - Initial package
