@@ -1,0 +1,9 @@
+--- termcolor-0.3.1/Cargo.toml	2017-03-13T02:32:00+01:00
++++ termcolor-0.3.1/Cargo.toml	2017-03-15T11:56:18.227590+01:00
+@@ -15,6 +15,3 @@
+ [lib]
+ name = "termcolor"
+ bench = false
+-
+-[target.'cfg(windows)'.dependencies]
+-wincolor = { version = "0.1.3", path = "../wincolor" }
