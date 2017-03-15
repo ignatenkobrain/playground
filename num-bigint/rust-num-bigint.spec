@@ -5,7 +5,7 @@
 %global crate num-bigint
 
 Name:           rust-%{crate}
-Version:        0.1.36
+Version:        0.1.37
 Release:        1%{?dist}
 Summary:        Big integer implementation for Rust
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/num-bigint
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         num-bigint-0.1.36-fix-metadata.diff
+Patch0:         num-bigint-0.1.37-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -60,5 +60,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.37-1
+- Update to 0.1.37
+
 * Thu Mar 02 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-1
 - Initial package
