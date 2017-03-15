@@ -5,25 +5,25 @@
 %global crate ignore
 
 Name:           rust-%{crate}
-Version:        0.1.7
+Version:        0.1.8
 Release:        1%{?dist}
 Summary:        Fast library for efficiently matching ignore files such as `.gitignore` against file paths
 
-# https://github.com/BurntSushi/ripgrep/issues/381
 License:        Unlicense or MIT
 URL:            https://crates.io/crates/ignore
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
 # * No simd
-Patch0:         ignore-0.1.7-fix-metadata.diff
+Patch0:         ignore-0.1.8-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(crossbeam) >= 0.2.0 with crate(crossbeam) < 0.3.0)
-BuildRequires:  (crate(globset) >= 0.1.3 with crate(globset) < 0.2.0)
+BuildRequires:  (crate(globset) >= 0.1.4 with crate(globset) < 0.2.0)
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
 BuildRequires:  (crate(memchr) >= 1.0.0 with crate(memchr) < 2.0.0)
@@ -31,6 +31,7 @@ BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
 BuildRequires:  (crate(thread_local) >= 0.3.2 with crate(thread_local) < 0.4.0)
 BuildRequires:  (crate(walkdir) >= 1.0.7 with crate(walkdir) < 2.0.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(tempdir) >= 0.3.5 with crate(tempdir) < 0.4.0)
 %endif
 
@@ -64,9 +65,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license COPYING UNLICENSE LICENSE-MIT
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.8-1
+- Update to 0.1.8
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.7-1
 - Initial package
