@@ -5,11 +5,10 @@
 %global crate grep
 
 Name:           rust-%{crate}
-Version:        0.1.5
+Version:        0.1.6
 Release:        1%{?dist}
 Summary:        Fast line oriented regex searching as a library
 
-# https://github.com/BurntSushi/ripgrep/issues/381
 License:        Unlicense or MIT
 URL:            https://crates.io/crates/grep
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -18,6 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
 BuildRequires:  (crate(memchr) >= 1.0.0 with crate(memchr) < 2.0.0)
 BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
@@ -52,9 +52,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license COPYING UNLICENSE LICENSE-MIT
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.6-1
+- Update to 0.1.6
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.5-1
 - Initial package
