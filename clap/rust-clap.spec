@@ -5,8 +5,8 @@
 %global crate clap
 
 Name:           rust-%{crate}
-Version:        2.20.5
-Release:        2%{?dist}
+Version:        2.21.1
+Release:        1%{?dist}
 Summary:        Simple to use, efficient, and full featured  Command Line Argument Parser
 
 License:        MIT
@@ -14,11 +14,7 @@ URL:            https://crates.io/crates/clap
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
-# * bump bitflags, https://github.com/kbknapp/clap-rs/pull/875
-# * bump vec_map, https://github.com/kbknapp/clap-rs/pull/881
-Patch0:         clap-2.20.5-fix-metadata.diff
-# https://github.com/kbknapp/clap-rs/pull/876
-Patch1:         0001-switch-to-regex-0.2.patch
+Patch0:         clap-2.21.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -26,16 +22,17 @@ BuildRequires:  rust
 BuildRequires:  cargo
 # [dependencies]
 BuildRequires:  (crate(ansi_term) >= 0.9.0 with crate(ansi_term) < 0.10.0)
+BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
 BuildRequires:  (crate(bitflags) >= 0.8.0 with crate(bitflags) < 0.9.0)
-BuildRequires:  (crate(libc) >= 0.2.20 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(strsim) >= 0.6.0 with crate(strsim) < 0.7.0)
-BuildRequires:  (crate(term_size) >= 0.2.2 with crate(term_size) < 0.3.0)
+BuildRequires:  (crate(term_size) >= 0.2.3 with crate(term_size) < 0.3.0)
 BuildRequires:  (crate(unicode-segmentation) >= 1.0.1 with crate(unicode-segmentation) < 2.0.0)
 BuildRequires:  (crate(unicode-width) >= 0.1.4 with crate(unicode-width) < 0.2.0)
 BuildRequires:  (crate(vec_map) >= 0.7.0 with crate(vec_map) < 0.8.0)
 BuildRequires:  (crate(yaml-rust) >= 0.3.5 with crate(yaml-rust) < 0.4.0)
 %if %{with check}
 # [dev-dependencies]
+BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 BuildRequires:  (crate(regex) >= 0.2.0 with crate(regex) < 0.3.0)
 %endif
 
@@ -73,6 +70,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.21.1-1
+- Update to 2.21.1
+
 * Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.20.5-2
 - Rebuild (vec_map)
 
