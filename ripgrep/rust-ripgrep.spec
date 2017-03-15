@@ -4,29 +4,26 @@
 %global crate ripgrep
 
 Name:           rust-%{crate}
-Version:        0.4.0
-Release:        6%{?dist}
+Version:        0.5.0
+Release:        1%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
 URL:            https://crates.io/crates/ripgrep
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-# * No windows
 # * No simd
-# * Bump env_logger, https://github.com/BurntSushi/ripgrep/pull/382
-# * Bump termcolor, https://github.com/BurntSushi/ripgrep/commit/a114b860635c98198d53e6ba8ed37c88df2c5cc3
-Patch0:         ripgrep-0.4.0-fix-metadata.diff
-# Fix build with new termcolor, https://github.com/BurntSushi/ripgrep/commit/22cb644eb6fc7872c1a0e5e084791b87382014b4
-Patch1:         0001-termcolor-add-support-for-output-to-standard-error.patch
+Patch0:         ripgrep-0.5.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
 # [dependencies]
+BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
 BuildRequires:  (crate(bytecount) >= 0.1.4 with crate(bytecount) < 0.2.0)
-BuildRequires:  (crate(clap) >= 2.19.0 with crate(clap) < 3.0.0)
+BuildRequires:  (crate(clap) >= 2.20.5 with crate(clap) < 3.0.0)
+BuildRequires:  (crate(encoding_rs) >= 0.5.0 with crate(encoding_rs) < 0.6.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
 BuildRequires:  (crate(grep) >= 0.1.5 with crate(grep) < 0.2.0)
 BuildRequires:  (crate(ignore) >= 0.1.7 with crate(ignore) < 0.2.0)
@@ -76,6 +73,9 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-1
+- Update to 0.5.0
+
 * Sat Mar 11 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-6
 - Rename with rust prefix
 
