@@ -7,8 +7,8 @@
 %global crate openssl-sys
 
 Name:           rust-%{crate}
-Version:        0.9.7
-Release:        2%{?dist}
+Version:        0.9.9
+Release:        1%{?dist}
 Summary:        FFI bindings to OpenSSL
 
 License:        MIT
@@ -16,7 +16,7 @@ URL:            https://crates.io/crates/openssl-sys
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No windows
-Patch0:         openssl-sys-0.9.7-fix-metadata.diff
+Patch0:         openssl-sys-0.9.9-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -63,6 +63,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.9-1
+- Update to 0.9.9
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.7-2
 - Rebuild
 
