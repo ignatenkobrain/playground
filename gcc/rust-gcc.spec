@@ -5,7 +5,7 @@
 %global crate gcc
 
 Name:           rust-%{crate}
-Version:        0.3.44
+Version:        0.3.45
 Release:        1%{?dist}
 Summary:        Build-time dependency for Cargo to assist in invoking the native C compiler
 
@@ -67,6 +67,9 @@ rm -vf %{buildroot}%{_bindir}/gcc-shim
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.45-1
+- Update to 0.3.45
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.44-1
 - Update to 0.3.44
 
