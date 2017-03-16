@@ -5,8 +5,8 @@
 %global crate rustc-serialize
 
 Name:           rust-%{crate}
-Version:        0.3.22
-Release:        2%{?dist}
+Version:        0.3.23
+Release:        1%{?dist}
 Summary:        Generic serialization/deserialization support
 
 License:        MIT or ASL 2.0
@@ -18,6 +18,7 @@ ExclusiveArch:  %{rust_arches}
 BuildRequires:  rust
 BuildRequires:  cargo
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 %endif
 
@@ -29,10 +30,15 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+Generic serialization/deserialization support corresponding to the
+`derive(RustcEncodable, RustcDecodable)` mode in the compiler. Also includes
+support for hex, base64, and json encoding and decoding.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
@@ -52,6 +58,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.23-1
+- Update to 0.3.23
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.22-2
 - Use rich dependencies
 
