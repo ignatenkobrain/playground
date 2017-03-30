@@ -1,5 +1,5 @@
---- serde_test-0.9.11/Cargo.toml	2017-03-06T01:51:26+01:00
-+++ serde_test-0.9.11/Cargo.toml	2017-03-06T09:01:38.429577+01:00
+--- serde_test-0.9.12/Cargo.toml	2017-03-28T00:44:56+02:00
++++ serde_test-0.9.12/Cargo.toml	2017-03-30T09:27:43.894666+02:00
 @@ -12,7 +12,7 @@
  include = ["Cargo.toml", "src/**/*.rs", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
  
