@@ -5,11 +5,10 @@
 %global crate either
 
 Name:           rust-%{crate}
-Version:        1.0.3
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        Enum `Either`, with variants `Left` and `Right` and trait implementations
 
-# https://github.com/bluss/either/issues/11
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/either
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -54,9 +53,13 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
 %doc README.rst
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.1.0-1
+- Update to 1.1.0
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.3-1
 - Initial package
