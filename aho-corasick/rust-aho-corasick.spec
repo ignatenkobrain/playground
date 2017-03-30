@@ -5,8 +5,8 @@
 %global crate aho-corasick
 
 Name:           rust-%{crate}
-Version:        0.6.2
-Release:        3%{?dist}
+Version:        0.6.3
+Release:        1%{?dist}
 Summary:        Fast multiple substring searching with finite state machines
 
 License:        Unlicense or MIT
@@ -64,6 +64,9 @@ rm -vf %{buildroot}%{_bindir}/aho-corasick-dot
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.3-1
+- Update to 0.6.3
+
 * Sat Mar 11 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.2-3
 - Rename with rust prefix
 - Don't ship useless binary
