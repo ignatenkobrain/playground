@@ -5,7 +5,7 @@
 %global crate linked-hash-map
 
 Name:           rust-%{crate}
-Version:        0.4.1
+Version:        0.4.2
 Release:        1%{?dist}
 Summary:        HashMap wrapper that holds key-value pairs in insertion order
 
@@ -14,12 +14,14 @@ URL:            https://crates.io/crates/linked-hash-map
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
-Patch0:         linked-hash-map-0.4.1-fix-metadata.diff
+Patch0:         linked-hash-map-0.4.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust
 BuildRequires:  cargo
+# [dependencies]
+BuildRequires:  (crate(heapsize) >= 0.3.9 with crate(heapsize) < 0.4.0)
 BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
 BuildRequires:  (crate(serde_test) >= 0.9.0 with crate(serde_test) < 0.10.0)
 
@@ -57,5 +59,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-1
+- Update to 0.4.2
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.1-1
 - Initial package
