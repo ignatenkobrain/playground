@@ -5,7 +5,7 @@
 %global crate lazy_static
 
 Name:           rust-%{crate}
-Version:        0.2.4
+Version:        0.2.5
 Release:        1%{?dist}
 Summary:        Macro for declaring lazily evaluated statics in Rust
 
@@ -54,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.5-1
+- Update to 0.2.5
+
 * Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.4-1
 - Update to 0.2.4
 
