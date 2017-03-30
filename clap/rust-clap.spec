@@ -5,7 +5,7 @@
 %global crate clap
 
 Name:           rust-%{crate}
-Version:        2.21.1
+Version:        2.22.1
 Release:        1%{?dist}
 Summary:        Simple to use, efficient, and full featured  Command Line Argument Parser
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/clap
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
-Patch0:         clap-2.21.1-fix-metadata.diff
+Patch0:         clap-2.22.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -70,6 +70,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.22.1-1
+- Update to 2.22.1
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.21.1-1
 - Update to 2.21.1
 
