@@ -5,7 +5,7 @@
 %global crate serde_codegen_internals
 
 Name:           rust-%{crate}
-Version:        0.14.1
+Version:        0.14.2
 Release:        1%{?dist}
 Summary:        AST representation used by Serde codegen
 
@@ -54,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.14.2-1
+- Update to 0.14.2
+
 * Wed Mar 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.14.1-1
 - Update to 0.14.1
 
