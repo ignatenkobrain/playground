@@ -1,5 +1,5 @@
---- rustfmt-0.8.0/Cargo.toml	2017-03-07T22:14:49+01:00
-+++ rustfmt-0.8.0/Cargo.toml	2017-03-08T10:41:31.050390+01:00
+--- rustfmt-0.8.1/Cargo.toml	2017-03-28T00:26:19+02:00
++++ rustfmt-0.8.1/Cargo.toml	2017-03-30T10:40:04.961499+02:00
 @@ -36,7 +36,3 @@
  
  [target.'cfg(unix)'.dependencies]

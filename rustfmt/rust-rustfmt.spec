@@ -4,8 +4,8 @@
 %global crate rustfmt
 
 Name:           rust-%{crate}
-Version:        0.8.0
-Release:        2%{?dist}
+Version:        0.8.1
+Release:        1%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
 License:        ASL 2.0 or MIT
@@ -13,7 +13,7 @@ URL:            https://crates.io/crates/rustfmt
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No windows
-Patch0:         rustfmt-0.8.0-fix-metadata.diff
+Patch0:         rustfmt-0.8.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -81,6 +81,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-1
+- Update to 0.8.1
+
 * Sat Mar 11 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-2
 - Rename with rust prefix
 
