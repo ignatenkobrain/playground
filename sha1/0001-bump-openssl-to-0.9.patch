@@ -1,0 +1,58 @@
+From 4aa14632e8876d9da5ab63a0fd4a6dc505394451 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <ignatenko@redhat.com>
+Date: Mon, 3 Apr 2017 16:52:00 +0200
+Subject: [PATCH] bump openssl to 0.9
+
+Signed-off-by: Igor Gnatenko <ignatenko@redhat.com>
+---
+ Cargo.toml | 2 +-
+ src/lib.rs | 9 ++++-----
+ 2 files changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 2fd41d1..ae2705d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -8,5 +8,5 @@ license = "BSD-3-Clause"
+ repository = "https://github.com/mitsuhiko/rust-sha1"
+ 
+ [dev-dependencies]
+-openssl = "0.7"
++openssl = "0.9"
+ rand = "0.3"
+diff --git a/src/lib.rs b/src/lib.rs
+index 0aeb9bc..af7974a 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -260,7 +260,6 @@ mod tests {
+     extern crate openssl;
+ 
+     use self::std::prelude::v1::*;
+-    use self::std::io::Write;
+ 
+     use Sha1;
+ 
+@@ -336,16 +335,16 @@ mod tests {
+         let mut bytes = [0; 512];
+ 
+         for _ in 0..20 {
+-            let ty = openssl::crypto::hash::Type::SHA1;
+-            let mut r = openssl::crypto::hash::Hasher::new(ty);
++            let ty = openssl::hash::MessageDigest::sha1();
++            let mut r = openssl::hash::Hasher::new(ty).unwrap();
+             m.reset();
+             for _ in 0..50 {
+                 let len = rng.gen::<usize>() % bytes.len();
+                 rng.fill_bytes(&mut bytes[..len]);
+                 m.update(&bytes[..len]);
+-                r.write(&bytes[..len]).unwrap();
++                r.update(&bytes[..len]).unwrap();
+             }
+-            assert_eq!(r.finish(), m.digest().bytes());
++            assert_eq!(r.finish().unwrap(), m.digest().bytes());
+         }
+     }
+ }
+-- 
+2.12.2
+
