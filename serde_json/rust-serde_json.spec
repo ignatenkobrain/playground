@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        JSON serialization file format
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(dtoa) >= 0.4.0 with crate(dtoa) < 0.5.0)
 BuildRequires:  (crate(itoa) >= 0.3.0 with crate(itoa) < 0.4.0)
@@ -62,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.9-2
+- Port to use rust-packaging
+
 * Mon Mar 06 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.9-1
 - Update to 0.9.9
 

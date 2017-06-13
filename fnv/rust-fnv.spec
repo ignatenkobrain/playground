@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        1.0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fowler–Noll–Vo hash function
 
 # https://github.com/servo/rust-fnv/issues/13
@@ -16,8 +16,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 
 %description
 %{summary}.
@@ -52,5 +51,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.5-2
+- Port to use rust-packaging
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.5-1
 - Initial package

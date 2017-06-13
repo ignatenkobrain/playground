@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.36
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Utilities for working with time-related functions in Rust
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         time-0.1.36-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(libc) >= 0.2.1 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(rustc-serialize) >= 0.3.0 with crate(rustc-serialize) < 0.4.0)
 %if %{with check}
@@ -60,6 +59,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-3
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-2
 - Use rich dependencies
 

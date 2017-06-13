@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        YAML 1.2 parser for rust
 
 License:        MIT or ASL 2.0
@@ -19,8 +19,7 @@ Patch0:         yaml-rust-0.3.5-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(linked-hash-map) >= 0.0.9 with crate(linked-hash-map) < 0.5.0)
 
 %description
@@ -57,5 +56,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.5-2
+- Port to use rust-packaging
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.5-1
 - Initial package

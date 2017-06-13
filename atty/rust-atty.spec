@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple interface for querying atty
 
 License:        MIT
@@ -19,8 +19,7 @@ Patch0:         atty-0.2.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 
@@ -58,5 +57,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.2-2
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.2-1
 - Initial package

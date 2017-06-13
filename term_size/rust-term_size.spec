@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Functions for determining terminal sizes and dimensions
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         term_size-0.2.3-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(libc) >= 0.2.20 with crate(libc) < 0.3.0)
 
 %description
@@ -56,5 +55,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.3-2
+- Port to use rust-packaging
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.3-1
 - Initial package

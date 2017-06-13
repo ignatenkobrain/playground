@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.14
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        getopts-like option parsing
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
 %endif
@@ -55,5 +54,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.14-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.14-1
 - Initial package

@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Infrastructure for measuring the total runtime size of an object on the heap
 
 License:        MPLv2.0
@@ -19,8 +19,7 @@ Patch0:         heapsize-0.3.9-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 
 %description
 %{summary}.
@@ -55,5 +54,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.9-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.9-1
 - Initial package

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Generic serialization/deserialization framework
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
 %if %{with check}
@@ -58,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-1
 - Update to 0.9.12
 

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        HashMap wrapper that holds key-value pairs in insertion order
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         linked-hash-map-0.4.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(heapsize) >= 0.3.9 with crate(heapsize) < 0.4.0)
 BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
@@ -59,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-1
 - Update to 0.4.2
 

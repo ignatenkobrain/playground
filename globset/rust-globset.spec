@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Single glob and glob set matching
 
 License:        Unlicense or MIT
@@ -18,8 +18,7 @@ Patch0:         globset-0.1.4-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(aho-corasick) >= 0.6.0 with crate(aho-corasick) < 0.7.0)
 BuildRequires:  (crate(fnv) >= 1.0.0 with crate(fnv) < 2.0.0)
@@ -67,6 +66,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-2
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-1
 - Update to 0.1.4
 

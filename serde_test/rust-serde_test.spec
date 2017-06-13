@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Token De/Serializer for testing De/Serialize implementations
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         serde_test-0.9.12-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
 
@@ -57,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-1
 - Update to 0.9.12
 

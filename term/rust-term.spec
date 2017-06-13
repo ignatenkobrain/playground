@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.4.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Terminal formatting library
 
 License:        MIT or ASL 2.0
@@ -17,8 +17,7 @@ Patch0:         term-0.4.5-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 
 %description
 %{summary}.
@@ -54,6 +53,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.5-2
+- Port to use rust-packaging
+
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.5-1
 - Initial package
 

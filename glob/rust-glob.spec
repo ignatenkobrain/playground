@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.11
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Support for matching file paths against Unix shell style patterns
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 BuildRequires:  (crate(tempdir) >= 0.3.0 with crate(tempdir) < 0.4.0)
 %endif
@@ -52,6 +51,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.11-3
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.11-2
 - Use rich dependencies
 

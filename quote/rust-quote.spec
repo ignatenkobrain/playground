@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.15
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Quasi-quoting macro quote!(...)
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 
 %description
 %{summary}.
@@ -52,6 +51,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-2
+- Port to use rust-packaging
+
 * Mon Mar 06 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-1
 - Update to 0.3.15
 

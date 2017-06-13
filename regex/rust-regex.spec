@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Implementation of regular expressions for Rust
 
 License:        MIT or ASL 2.0
@@ -20,8 +20,7 @@ Patch0:         regex-0.2.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(aho-corasick) >= 0.6.0 with crate(aho-corasick) < 0.7.0)
 BuildRequires:  (crate(memchr) >= 1.0.0 with crate(memchr) < 2.0.0)
 BuildRequires:  (crate(regex-syntax) >= 0.4.0 with crate(regex-syntax) < 0.5.0)
@@ -69,5 +68,8 @@ rm -vrf {appveyor.yml,ci,scripts}
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.1-2
+- Port to use rust-packaging
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.1-1
 - Initial package

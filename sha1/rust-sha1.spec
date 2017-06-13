@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Minimal implementation of SHA1 for Rust
 
 License:        BSD
@@ -17,8 +17,7 @@ Patch0:         0001-bump-openssl-to-0.9.patch
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 # [dev-dependencies]
 BuildRequires:  (crate(openssl) >= 0.9.0 with crate(openssl) < 0.10.0)
@@ -59,5 +58,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-2
+- Port to use rust-packaging
+
 * Mon Apr 03 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-1
 - Initial package

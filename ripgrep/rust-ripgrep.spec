@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.5.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -17,8 +17,7 @@ Patch0:         ripgrep-0.5.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
 BuildRequires:  (crate(bytecount) >= 0.1.4 with crate(bytecount) < 0.2.0)
@@ -73,6 +72,9 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-2
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-1
 - Update to 0.5.0
 

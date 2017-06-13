@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.8.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
 License:        ASL 2.0 or MIT
@@ -17,8 +17,7 @@ Patch0:         rustfmt-0.8.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(diff) >= 0.1.0 with crate(diff) < 0.2.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
@@ -81,6 +80,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-1
 - Update to 0.8.1
 

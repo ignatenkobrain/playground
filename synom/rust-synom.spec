@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.11.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Stripped-down Nom parser used by Syn
 
 License:        MIT or ASL 2.0
@@ -19,8 +19,7 @@ Patch0:         synom-0.11.3-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(unicode-xid) >= 0.0.4 with crate(unicode-xid) < 0.0.5)
 %if %{with check}
@@ -62,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.3-2
+- Port to use rust-packaging
+
 * Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.3-1
 - Update to 0.11.3
 

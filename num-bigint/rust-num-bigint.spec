@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.37
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Big integer implementation for Rust
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         num-bigint-0.1.37-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(num-integer) >= 0.1.32 with crate(num-integer) < 0.2.0)
 BuildRequires:  (crate(num-traits) >= 0.1.32 with crate(num-traits) < 0.2.0)
@@ -60,6 +59,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.37-2
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.37-1
 - Update to 0.1.37
 

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.11.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Nom parser for Rust source code
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         syn-0.11.9-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(quote) >= 0.3.7 with crate(quote) < 0.4.0)
 BuildRequires:  (crate(synom) >= 0.11.0 with crate(synom) < 0.12.0)
@@ -67,6 +66,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.9-2
+- Port to use rust-packaging
+
 * Tue Mar 07 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.11.9-1
 - Update to 0.11.9
 

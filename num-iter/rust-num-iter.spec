@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.33
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        External iterators for generic mathematics
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         num-iter-0.1.33-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(num-integer) >= 0.1.32 with crate(num-integer) < 0.2.0)
 BuildRequires:  (crate(num-traits) >= 0.1.32 with crate(num-traits) < 0.2.0)
@@ -57,5 +56,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.33-2
+- Port to use rust-packaging
+
 * Thu Mar 02 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.33-1
 - Initial package

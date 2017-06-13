@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Logging implementation for `log` which is configured via an environment variable
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         env_logger-0.4.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
 BuildRequires:  (crate(regex) >= 0.2.0 with crate(regex) < 0.3.0)
@@ -58,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-2
+- Port to use rust-packaging
+
 * Wed Mar 08 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-1
 - Update to 0.4.2
 

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.58.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Export of libsyntax for code generation
 
 License:        MIT or ASL 2.0
@@ -17,8 +17,7 @@ Patch0:         syntex_syntax-0.58.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(bitflags) >= 0.8.0 with crate(bitflags) < 0.9.0)
 BuildRequires:  (crate(log) >= 0.3.6 with crate(log) < 0.4.0)
 BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
@@ -60,6 +59,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-2
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-1
 - Update to 0.58.1
 

@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
@@ -14,8 +14,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2.0)
 
@@ -49,6 +48,9 @@ Summary:        %{summary}
 %{_bindir}/rustfilt
 
 %changelog
+* Tue Jun 13 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-7
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-6
 - Rename with rust prefix
 

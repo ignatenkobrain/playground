@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        LCS based slice and string diffing implementation
 
 License:        MIT or ASL 2.0
@@ -16,8 +16,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 # [dev-dependencies]
 BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
@@ -58,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.10-2
+- Port to use rust-packaging
+
 * Sun Mar 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.10-1
 - Update to 0.1.10
 

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.6.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast multiple substring searching with finite state machines
 
 License:        Unlicense or MIT
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(memchr) >= 1.0.0 with crate(memchr) < 2.0.0)
 %if %{with check}
@@ -64,6 +63,9 @@ rm -vf %{buildroot}%{_bindir}/aho-corasick-dot
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.3-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.3-1
 - Update to 0.6.3
 

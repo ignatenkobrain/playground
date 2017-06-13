@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Macros 1.1 implementation of #[derive(Serialize, Deserialize)]
 
 License:        MIT or ASL 2.0
@@ -18,8 +18,7 @@ Patch0:         serde_derive-0.9.12-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(quote) >= 0.3.8 with crate(quote) < 0.4.0)
 BuildRequires:  crate(serde_codegen_internals) = 0.14.2
@@ -59,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.12-1
 - Update to 0.9.12
 

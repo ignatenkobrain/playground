@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        1.0.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Recursively walk a directory
 
 License:        Unlicense or MIT
@@ -18,8 +18,7 @@ Patch0:         walkdir-1.0.7-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(same-file) >= 0.1.1 with crate(same-file) < 0.2.0)
 %if %{with check}
 BuildRequires:  (crate(docopt) >= 0.7.0 with crate(docopt) < 0.8.0)
@@ -62,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.7-3
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.7-2
 - Use rich dependencies
 

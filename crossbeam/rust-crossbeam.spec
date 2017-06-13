@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Support for lock-free data structures, synchronizers, and parallel programming
 
 License:        ASL 2.0 or MIT
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 %endif
@@ -57,5 +56,8 @@ rm -vrf src/bin/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.10-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.10-1
 - Initial package

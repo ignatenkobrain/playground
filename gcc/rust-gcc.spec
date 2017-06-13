@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.45
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Build-time dependency for Cargo to assist in invoking the native C compiler
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(rayon) >= 0.6.0 with crate(rayon) < 0.7.0)
 %if %{with check}
@@ -67,6 +66,9 @@ rm -vf %{buildroot}%{_bindir}/gcc-shim
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.45-2
+- Port to use rust-packaging
+
 * Thu Mar 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.45-1
 - Update to 0.3.45
 

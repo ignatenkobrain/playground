@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Simple crate for determining whether two file paths point to the same file
 
 License:        MIT or Unlicense
@@ -17,8 +17,7 @@ Patch0:         same-file-0.1.3-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 %if %{with check}
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 %endif
@@ -57,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.3-4
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.3-3
 - Use rich dependencies
 

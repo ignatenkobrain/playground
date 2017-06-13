@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        OpenSSL bindings
 
 License:        ASL 2.0
@@ -21,8 +21,7 @@ Patch0:         openssl-0.9.10-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(bitflags) >= 0.8.0 with crate(bitflags) < 0.9.0)
 BuildRequires:  (crate(foreign-types) >= 0.2.0 with crate(foreign-types) < 0.3.0)
@@ -68,5 +67,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-2
+- Port to use rust-packaging
+
 * Mon Apr 03 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-1
 - Initial package

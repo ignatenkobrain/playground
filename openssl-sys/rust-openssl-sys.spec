@@ -8,7 +8,7 @@
 
 Name:           rust-%{crate}
 Version:        0.9.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        FFI bindings to OpenSSL
 
 License:        MIT
@@ -20,8 +20,7 @@ Patch0:         openssl-sys-0.9.10-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 # [build-dependencies]
@@ -63,6 +62,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-2
+- Port to use rust-packaging
+
 * Mon Apr 03 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.10-1
 - Update to 0.9.10
 

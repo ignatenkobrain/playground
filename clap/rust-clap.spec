@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        2.22.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple to use, efficient, and full featured  Command Line Argument Parser
 
 License:        MIT
@@ -18,8 +18,7 @@ Patch0:         clap-2.22.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(ansi_term) >= 0.9.0 with crate(ansi_term) < 0.10.0)
 BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
@@ -70,6 +69,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.22.1-2
+- Port to use rust-packaging
+
 * Thu Mar 30 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.22.1-1
 - Update to 2.22.1
 

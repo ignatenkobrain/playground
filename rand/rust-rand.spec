@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.15
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Random number generators and other randomness functionality
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 %if %{with check}
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
@@ -53,6 +52,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-3
+- Port to use rust-packaging
+
 * Fri Feb 24 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.15-2
 - Use rich dependencies
 

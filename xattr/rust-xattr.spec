@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.11
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        UNIX extended filesystem attributes
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 %if %{with check}
@@ -58,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.11-2
+- Port to use rust-packaging
+
 * Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.11-1
 - Update to 0.1.11
 

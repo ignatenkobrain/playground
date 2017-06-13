@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.5.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Cross-platform Rust API for memory-mapped file IO
 
 License:        MIT or ASL 2.0
@@ -17,8 +17,7 @@ Patch0:         memmap-0.5.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 %if %{with check}
 BuildRequires:  (crate(tempdir) >= 0.3.0 with crate(tempdir) < 0.4.0)
@@ -58,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-1
 - Update to 0.5.2
 

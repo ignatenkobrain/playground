@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Semantic version parsing and comparison
 
 License:        MIT or ASL 2.0
@@ -16,8 +16,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(semver-parser) >= 0.7.0 with crate(semver-parser) < 0.8.0)
 %if %{with check}
 BuildRequires:  (crate(crates-index) >= 0.5.0 with crate(crates-index) < 0.6.0)
@@ -58,5 +57,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-1
 - Initial package

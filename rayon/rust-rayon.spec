@@ -7,7 +7,7 @@
 
 Name:           rust-%{crate}
 Version:        0.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple work-stealing parallelism for Rust
 
 License:        ASL 2.0 or MIT
@@ -19,8 +19,7 @@ Patch0:         rayon-0.6.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(deque) >= 0.3.1 with crate(deque) < 0.4.0)
 BuildRequires:  (crate(libc) >= 0.2.16 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(num_cpus) >= 1.0.0 with crate(num_cpus) < 2.0.0)
@@ -64,5 +63,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-1
 - Initial package

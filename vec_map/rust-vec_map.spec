@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.7.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple map based on a vector for small integer keys
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
 BuildRequires:  (crate(serde_derive) >= 0.9.0 with crate(serde_derive) < 0.10.0)
@@ -55,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.0-2
+- Port to use rust-packaging
+
 * Tue Feb 28 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.7.0-1
 - Update to 0.7.0
 

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}0.8
 Version:        0.8.23
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Generic serialization/deserialization framework
 
 # https://github.com/serde-rs/serde/issues/772
@@ -19,8 +19,7 @@ Patch0:         serde-0.8.23-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 
 %description
 %{summary}.
@@ -54,5 +53,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.23-2
+- Port to use rust-packaging
+
 * Sat Feb 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.23-1
 - Initial package

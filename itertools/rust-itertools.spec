@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.5.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Extra iterator adaptors, iterator methods, free functions, and macros
 
 License:        MIT or ASL 2.0
@@ -15,8 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 BuildRequires:  (crate(either) >= 1.0.0 with crate(either) < 2.0.0)
 %if %{with check}
 BuildRequires:  (crate(permutohedron) >= 0.2.0 with crate(permutohedron) < 0.3.0)
@@ -57,5 +56,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.9-2
+- Port to use rust-packaging
+
 * Sun Feb 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.9-1
 - Initial package

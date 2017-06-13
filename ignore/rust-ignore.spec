@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast library for efficiently matching ignore files such as `.gitignore` against file paths
 
 License:        Unlicense or MIT
@@ -19,8 +19,7 @@ Patch0:         ignore-0.1.8-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(crossbeam) >= 0.2.0 with crate(crossbeam) < 0.3.0)
 BuildRequires:  (crate(globset) >= 0.1.4 with crate(globset) < 0.2.0)
@@ -70,6 +69,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.8-2
+- Port to use rust-packaging
+
 * Wed Mar 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.8-1
 - Update to 0.1.8
 
