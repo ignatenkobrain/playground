@@ -5,8 +5,8 @@
 %global crate globset
 
 Name:           rust-%{crate}
-Version:        0.1.4
-Release:        2%{?dist}
+Version:        0.2.0
+Release:        1%{?dist}
 Summary:        Single glob and glob set matching
 
 License:        Unlicense or MIT
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/globset
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No simd
-Patch0:         globset-0.1.4-fix-metadata.diff
+Patch0:         globset-0.2.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -66,6 +66,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-1
+- Update to 0.2.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-2
 - Port to use rust-packaging
 

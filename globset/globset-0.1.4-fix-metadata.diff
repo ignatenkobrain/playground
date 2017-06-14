@@ -1,9 +1,0 @@
---- globset-0.1.4/Cargo.toml	2017-03-13T02:32:14+01:00
-+++ globset-0.1.4/Cargo.toml	2017-03-15T12:01:23.859545+01:00
-@@ -27,6 +27,3 @@
- 
- [dev-dependencies]
- glob = "0.2"
--
--[features]
--simd-accel = ["regex/simd-accel"]
