@@ -1,11 +1,11 @@
---- ignore-0.1.8/Cargo.toml	2017-03-13T02:32:35+01:00
-+++ ignore-0.1.8/Cargo.toml	2017-03-15T12:24:59.102230+01:00
+--- ignore-0.2.0/Cargo.toml	2017-05-12T01:07:08+02:00
++++ ignore-0.2.0/Cargo.toml	2017-06-14T16:15:10.677802+02:00
 @@ -19,7 +19,7 @@
  
  [dependencies]
  crossbeam = "0.2"
--globset = { version = "0.1.4", path = "../globset" }
-+globset = { version = "0.1.4" }
+-globset = { version = "0.2.0", path = "../globset" }
++globset = { version = "0.2.0" }
  lazy_static = "0.2"
  log = "0.3"
  memchr = "1"
