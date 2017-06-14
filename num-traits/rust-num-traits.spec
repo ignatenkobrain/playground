@@ -5,8 +5,8 @@
 %global crate num-traits
 
 Name:           rust-%{crate}
-Version:        0.1.37
-Release:        2%{?dist}
+Version:        0.1.39
+Release:        1%{?dist}
 Summary:        Numeric traits for generic mathematics
 
 License:        MIT or ASL 2.0
@@ -50,6 +50,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.39-1
+- Update to 0.1.39
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.37-2
 - Port to use rust-packaging
 
