@@ -5,8 +5,8 @@
 %global crate num_cpus
 
 Name:           rust-%{crate}
-Version:        1.3.0
-Release:        2%{?dist}
+Version:        1.5.1
+Release:        1%{?dist}
 Summary:        Get the number of CPUs on a machine
 
 License:        MIT or ASL 2.0
@@ -17,7 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
-BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
+BuildRequires:  (crate(libc) >= 0.2.6 with crate(libc) < 0.3.0)
 
 %description
 %{summary}.
@@ -53,6 +53,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.5.1-1
+- Update to 1.5.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.3.0-2
 - Port to use rust-packaging
 
