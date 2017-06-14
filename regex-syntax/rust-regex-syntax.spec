@@ -6,8 +6,8 @@
 %global crate regex-syntax
 
 Name:           rust-%{crate}
-Version:        0.4.0
-Release:        3%{?dist}
+Version:        0.4.1
+Release:        1%{?dist}
 Summary:        Regular expression parser
 
 # https://github.com/rust-lang/regex/issues/342
@@ -19,6 +19,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
 BuildRequires:  (crate(rand) >= 0.3.15 with crate(rand) < 0.4.0)
 %endif
@@ -55,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.1-1
+- Update to 0.4.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-3
 - Port to use rust-packaging
 
