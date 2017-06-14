@@ -5,8 +5,8 @@
 %global crate matches
 
 Name:           rust-%{crate}
-Version:        0.1.4
-Release:        2%{?dist}
+Version:        0.1.6
+Release:        1%{?dist}
 Summary:        Macro to evaluate, as a boolean, whether an expression matches a pattern
 
 License:        MIT
@@ -25,10 +25,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+A macro to evaluate, as a boolean, whether an expression matches a pattern.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
@@ -47,6 +50,9 @@ BuildArch:      noarch
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.6-1
+- Update to 0.1.6
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-2
 - Port to use rust-packaging
 
