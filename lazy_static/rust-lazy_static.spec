@@ -5,11 +5,11 @@
 %global crate lazy_static
 
 Name:           rust-%{crate}
-Version:        0.2.5
-Release:        2%{?dist}
+Version:        0.2.8
+Release:        1%{?dist}
 Summary:        Macro for declaring lazily evaluated statics in Rust
 
-License:        MIT
+License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/lazy_static
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 
@@ -48,11 +48,14 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
-%license LICENSE
+%license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.8-1
+- Update to 0.2.8
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.5-2
 - Port to use rust-packaging
 
