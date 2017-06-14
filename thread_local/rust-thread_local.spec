@@ -6,18 +6,22 @@
 
 Name:           rust-%{crate}
 Version:        0.3.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Per-object thread-local storage
 
 License:        ASL 2.0 or MIT
 URL:            https://crates.io/crates/thread_local
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
+# Initial patched metadata
+# * Bump unreachable to 1.0, https://github.com/Amanieu/thread_local-rs/pull/7
+Patch0:         thread_local-0.3.3-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(thread-id) >= 3.0.0 with crate(thread-id) < 4.0.0)
-BuildRequires:  (crate(unreachable) >= 0.1.0 with crate(unreachable) < 0.2.0)
+BuildRequires:  (crate(unreachable) >= 1.0.0 with crate(unreachable) < 2.0.0)
 
 %description
 %{summary}.
@@ -53,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.3-4
+- Bump unreachable dependency to 1.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.3-3
 - Port to use rust-packaging
 

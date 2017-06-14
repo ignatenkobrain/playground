@@ -1,0 +1,11 @@
+--- thread_local-0.3.3/Cargo.toml	2017-02-20T02:15:50+01:00
++++ thread_local-0.3.3/Cargo.toml	2017-06-14T16:31:22.434724+02:00
+@@ -10,7 +10,7 @@
+ keywords = ["thread_local", "concurrent", "thread"]
+ 
+ [dependencies]
+-unreachable = "0.1"
++unreachable = "1.0"
+ 
+ [target.'cfg(not(target_os = "emscripten"))'.dependencies]
+ thread-id = "3.0"
