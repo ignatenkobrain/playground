@@ -4,8 +4,8 @@
 %global crate ripgrep
 
 Name:           rust-%{crate}
-Version:        0.5.0
-Release:        2%{?dist}
+Version:        0.5.2
+Release:        1%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -13,7 +13,7 @@ URL:            https://crates.io/crates/ripgrep
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No simd
-Patch0:         ripgrep-0.5.0-fix-metadata.diff
+Patch0:         ripgrep-0.5.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -21,11 +21,11 @@ BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
 BuildRequires:  (crate(bytecount) >= 0.1.4 with crate(bytecount) < 0.2.0)
-BuildRequires:  (crate(clap) >= 2.20.5 with crate(clap) < 3.0.0)
+BuildRequires:  (crate(clap) >= 2.24.1 with crate(clap) < 3.0.0)
 BuildRequires:  (crate(encoding_rs) >= 0.5.0 with crate(encoding_rs) < 0.6.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
 BuildRequires:  (crate(grep) >= 0.1.5 with crate(grep) < 0.2.0)
-BuildRequires:  (crate(ignore) >= 0.1.7 with crate(ignore) < 0.2.0)
+BuildRequires:  (crate(ignore) >= 0.2.0 with crate(ignore) < 0.3.0)
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
@@ -36,7 +36,7 @@ BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
 BuildRequires:  (crate(same-file) >= 0.1.1 with crate(same-file) < 0.2.0)
 BuildRequires:  (crate(termcolor) >= 0.3.0 with crate(termcolor) < 0.4.0)
 # [build-dependencies]
-BuildRequires:  (crate(clap) >= 2.18.0 with crate(clap) < 3.0.0)
+BuildRequires:  (crate(clap) >= 2.24.1 with crate(clap) < 3.0.0)
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 
 %description
@@ -72,6 +72,9 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-1
+- Update to 0.5.2
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-2
 - Port to use rust-packaging
 
