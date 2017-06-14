@@ -5,17 +5,18 @@
 %global crate unreachable
 
 Name:           rust-%{crate}
-Version:        0.1.1
-Release:        3%{?dist}
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        Unreachable code optimization hint in stable rust
 
-License:        MIT
+License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/unreachable
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(void) >= 1.0.0 with crate(void) < 2.0.0)
 
 %description
@@ -47,10 +48,14 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.0-1
+- Update to 1.0.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-3
 - Port to use rust-packaging
 
