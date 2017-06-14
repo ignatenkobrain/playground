@@ -1,5 +1,5 @@
---- thread-id-3.0.0/Cargo.toml	2016-10-29T19:47:54+02:00
-+++ thread-id-3.0.0/Cargo.toml	2017-02-18T01:13:03.926017+01:00
+--- thread-id-3.1.0/Cargo.toml	2017-05-13T23:14:53+02:00
++++ thread-id-3.1.0/Cargo.toml	2017-06-14T14:30:41.666686+02:00
 @@ -11,6 +11,3 @@
  
  [target.'cfg(unix)'.dependencies]

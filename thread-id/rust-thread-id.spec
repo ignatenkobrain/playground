@@ -5,19 +5,20 @@
 %global crate thread-id
 
 Name:           rust-%{crate}
-Version:        3.0.0
-Release:        3%{?dist}
+Version:        3.1.0
+Release:        1%{?dist}
 Summary:        Get a unique thread ID
 
-License:        ASL 2.0
+License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/thread-id
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-Patch0:         thread-id-3.0.0-fix-metadata.diff
+Patch0:         thread-id-3.1.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.6 with crate(libc) < 0.3.0)
 
 %description
@@ -49,11 +50,14 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
-%license license
+%license license-mit license-apache
 %doc readme.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.1.0-1
+- Update to 3.1.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.0.0-3
 - Port to use rust-packaging
 
