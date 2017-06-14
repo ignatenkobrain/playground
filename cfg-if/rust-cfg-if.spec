@@ -5,11 +5,10 @@
 %global crate cfg-if
 
 Name:           rust-%{crate}
-Version:        0.1.0
-Release:        2%{?dist}
+Version:        0.1.1
+Release:        1%{?dist}
 Summary:        Macro to ergonomically define an item depending on a large number of #[cfg] parameters
 
-# https://github.com/alexcrichton/cfg-if/issues/2
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/cfg-if
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -49,13 +48,16 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-1
+- Update to 0.1.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-2
 - Port to use rust-packaging
 
 * Sat Feb 18 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-1
 - Initial package
-
