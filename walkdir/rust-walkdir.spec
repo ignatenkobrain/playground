@@ -19,8 +19,10 @@ Patch0:         walkdir-1.0.7-fix-metadata.diff
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(same-file) >= 0.1.1 with crate(same-file) < 0.2.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(docopt) >= 0.7.0 with crate(docopt) < 0.8.0)
 BuildRequires:  (crate(quickcheck) >= 0.4.0 with crate(quickcheck) < 0.5.0)
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
