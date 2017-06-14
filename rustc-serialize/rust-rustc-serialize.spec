@@ -5,8 +5,8 @@
 %global crate rustc-serialize
 
 Name:           rust-%{crate}
-Version:        0.3.23
-Release:        2%{?dist}
+Version:        0.3.24
+Release:        1%{?dist}
 Summary:        Generic serialization/deserialization support
 
 License:        MIT or ASL 2.0
@@ -57,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.24-1
+- Update to 0.3.24
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.23-2
 - Port to use rust-packaging
 
