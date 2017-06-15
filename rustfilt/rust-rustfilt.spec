@@ -4,8 +4,8 @@
 %global crate rustfilt
 
 Name:           rust-%{crate}
-Version:        0.1.1
-Release:        7%{?dist}
+Version:        0.2.0
+Release:        1%{?dist}
 Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
@@ -16,7 +16,10 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
-BuildRequires:  (crate(rustc-demangle) >= 0.1.2 with crate(rustc-demangle) < 0.2.0)
+BuildRequires:  ((crate(clap) >= 2.21.1 with crate(clap) < 3.0.0) with crate(clap/wrap_help))
+BuildRequires:  (crate(lazy_static) >= 0.2.4 with crate(lazy_static) < 0.3.0)
+BuildRequires:  (crate(regex) >= 0.2.1 with crate(regex) < 0.3.0)
+BuildRequires:  (crate(rustc-demangle) >= 0.1.4 with crate(rustc-demangle) < 0.2.0)
 
 %description
 %{summary}.
@@ -48,6 +51,9 @@ Summary:        %{summary}
 %{_bindir}/rustfilt
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-1
+- Update to 0.2.0
+
 * Tue Jun 13 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-7
 - Port to use rust-packaging
 
