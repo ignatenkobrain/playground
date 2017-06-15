@@ -1,6 +1,6 @@
---- heapsize-0.3.9/Cargo.toml	2017-03-24T20:40:40+01:00
-+++ heapsize-0.3.9/Cargo.toml	2017-03-30T10:00:23.786634+02:00
-@@ -7,8 +7,5 @@
+--- heapsize-0.4.0/Cargo.toml	2017-05-18T15:17:21+02:00
++++ heapsize-0.4.0/Cargo.toml	2017-06-15T12:41:46.770008+02:00
+@@ -7,9 +7,6 @@
  repository = "https://github.com/servo/heapsize"
  build = "build.rs"
  
@@ -9,3 +9,4 @@
 -
  [features]
  unstable = []
+ 
