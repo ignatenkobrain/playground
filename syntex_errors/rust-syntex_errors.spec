@@ -5,24 +5,24 @@
 %global crate syntex_errors
 
 Name:           rust-%{crate}
-Version:        0.58.1
-Release:        2%{?dist}
-Summary:        Export of librustc_errors for code generation
+Version:        0.59.0
+Release:        1%{?dist}
+Summary:        Backport of librustc_errors
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_errors
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-Patch0:         syntex_errors-0.58.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
-BuildRequires:  (crate(libc) >= 0.2.13 with crate(libc) < 0.3.0)
-BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
-BuildRequires:  (crate(syntex_pos) >= 0.58.0 with crate(syntex_pos) < 0.59.0)
-BuildRequires:  (crate(term) >= 0.4.4 with crate(term) < 0.5.0)
-BuildRequires:  (crate(unicode-xid) >= 0.0.4 with crate(unicode-xid) < 0.0.5)
+# [dependencies]
+BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
+BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
+BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
+BuildRequires:  (crate(syntex_pos) >= 0.59.0 with crate(syntex_pos) < 0.60.0)
+BuildRequires:  (crate(term) >= 0.4.0 with crate(term) < 0.5.0)
+BuildRequires:  (crate(unicode-xid) >= 0.1.0 with crate(unicode-xid) < 0.2.0)
 
 %description
 %{summary}.
@@ -32,7 +32,7 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-Export of librustc_errors for code generation.
+Backport of librustc_errors.
 
 This package contains library source intended for building other packages
 which use %{crate} from crates.io.
@@ -58,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.0-1
+- Update to 0.59.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-2
 - Port to use rust-packaging
 
