@@ -5,8 +5,8 @@
 %global crate num-complex
 
 Name:           rust-%{crate}
-Version:        0.1.36
-Release:        2%{?dist}
+Version:        0.1.38
+Release:        1%{?dist}
 Summary:        Complex numbers implementation for Rust
 
 License:        MIT or ASL 2.0
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/num-complex
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         num-complex-0.1.36-fix-metadata.diff
+Patch0:         num-complex-0.1.38-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -57,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.38-1
+- Update to 0.1.38
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-2
 - Port to use rust-packaging
 
