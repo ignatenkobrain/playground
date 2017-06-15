@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        2.1.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Securely create temporary files
 
 License:        MIT or ASL 2.0
@@ -14,6 +14,7 @@ URL:            https://crates.io/crates/tempfile
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No Windows
+# * Remove rustc_version, https://github.com/Stebalien/tempfile/commit/0b7e0d573a2351d4f0a6e4ed833bc6ffdbc0dd4f
 Patch0:         tempfile-2.1.5-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
@@ -22,8 +23,6 @@ BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.0 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
-# [build-dependencies]
-BuildRequires:  (crate(rustc_version) >= 0.1.4 with crate(rustc_version) < 0.2.0)
 
 %description
 %{summary}.
@@ -40,6 +39,7 @@ which use %{crate} from crates.io.
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
+rm -vf build.rs
 %cargo_prep
 
 %build
@@ -59,6 +59,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproejct.org> - 2.1.5-4
+- Drop rustc_version BR
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.1.5-3
 - Port to use rust-packaging
 
