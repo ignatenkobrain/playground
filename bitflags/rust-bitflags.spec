@@ -5,8 +5,8 @@
 %global crate bitflags
 
 Name:           rust-%{crate}
-Version:        0.8.2
-Release:        2%{?dist}
+Version:        0.9.1
+Release:        1%{?dist}
 Summary:        Macro to generate structures which behave like bitflags
 
 License:        MIT or ASL 2.0
@@ -51,6 +51,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.1-1
+- Update to 0.9.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.2-2
 - Port to use rust-packaging
 
