@@ -14,6 +14,7 @@ URL:            https://crates.io/crates/linked-hash-map
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
+# * Bump heapsize to 0.4, https://github.com/contain-rs/linked-hash-map/pull/85
 Patch0:         linked-hash-map-0.4.2-fix-metadata.diff
 # Bump serde to 1.0, https://github.com/contain-rs/linked-hash-map/pull/84
 Patch0001:      0001-upgrade-serde-support-for-serde1.0.patch
@@ -23,7 +24,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
-BuildRequires:  (crate(heapsize) >= 0.3.9 with crate(heapsize) < 0.4.0)
+BuildRequires:  (crate(heapsize) >= 0.4.0 with crate(heapsize) < 0.5.0)
 BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
 BuildRequires:  (crate(serde_test) >= 1.0.0 with crate(serde_test) < 2.0.0)
 
@@ -63,6 +64,7 @@ which use %{crate} from crates.io.
 %changelog
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-3
 - Bump serde to 1.0
+- Bump heapsize to 0.4
 
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-2
 - Port to use rust-packaging

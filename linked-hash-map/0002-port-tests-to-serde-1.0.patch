@@ -1,4 +1,4 @@
-From 050b4852bc2522c10186858332620473f1547277 Mon Sep 17 00:00:00 2001
+From e7aa7d0b29b7cdfacb3bfd45a6bc6fbcb340e338 Mon Sep 17 00:00:00 2001
 From: Igor Gnatenko <ignatenko@redhat.com>
 Date: Thu, 15 Jun 2017 13:32:56 +0200
 Subject: [PATCH 2/2] port tests to serde 1.0

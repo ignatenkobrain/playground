@@ -1,5 +1,5 @@
 --- linked-hash-map-0.4.2/Cargo.toml	2017-03-30T01:29:59+02:00
-+++ linked-hash-map-0.4.2/Cargo.toml	2017-03-30T10:31:12.644363+02:00
++++ linked-hash-map-0.4.2/Cargo.toml	2017-06-15T14:12:56.798865+02:00
 @@ -16,12 +16,10 @@
  readme = "README.md"
  
@@ -10,6 +10,9 @@
  
  [dependencies]
 -clippy = { version = "0.*", optional = true }
- serde = { version = "0.9", optional = true }
- serde_test = { version = "0.9", optional = true }
- heapsize = { version = "0.3.9", optional = true }
+-serde = { version = "0.9", optional = true }
+-serde_test = { version = "0.9", optional = true }
+-heapsize = { version = "0.3.9", optional = true }
++serde = { version = "1.0", optional = true }
++serde_test = { version = "1.0", optional = true }
++heapsize = { version = "0.4", optional = true }
