@@ -5,8 +5,8 @@
 %global crate itertools
 
 Name:           rust-%{crate}
-Version:        0.5.9
-Release:        2%{?dist}
+Version:        0.6.0
+Release:        1%{?dist}
 Summary:        Extra iterator adaptors, iterator methods, free functions, and macros
 
 License:        MIT or ASL 2.0
@@ -16,8 +16,10 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(either) >= 1.0.0 with crate(either) < 2.0.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(permutohedron) >= 0.2.0 with crate(permutohedron) < 0.3.0)
 BuildRequires:  (crate(quickcheck) >= 0.4.0 with crate(quickcheck) < 0.5.0)
 %endif
@@ -56,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-1
+- Update to 0.6.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.9-2
 - Port to use rust-packaging
 
