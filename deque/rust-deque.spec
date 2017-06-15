@@ -5,8 +5,8 @@
 %global crate deque
 
 Name:           rust-%{crate}
-Version:        0.3.1
-Release:        2%{?dist}
+Version:        0.3.2
+Release:        1%{?dist}
 Summary:        A (mostly) lock-free concurrent work-stealing deque
 
 License:        MIT or ASL 2.0
@@ -16,7 +16,10 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+%if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
+%endif
 
 %description
 %{summary}.
@@ -52,6 +55,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.2-1
+- Update to 0.3.2
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.1-2
 - Port to use rust-packaging
 
