@@ -5,8 +5,8 @@
 %global crate unicode-segmentation
 
 Name:           rust-%{crate}
-Version:        1.1.0
-Release:        2%{?dist}
+Version:        1.2.0
+Release:        1%{?dist}
 Summary:        Grapheme Cluster and Word boundaries according to Unicode Standard Annex #29 rules
 
 License:        MIT or ASL 2.0
@@ -17,6 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(quickcheck) >= 0.4.0 with crate(quickcheck) < 0.5.0)
 %endif
 
@@ -55,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.0-1
+- Update to 1.2.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.1.0-2
 - Port to use rust-packaging
 
