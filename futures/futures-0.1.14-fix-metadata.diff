@@ -1,0 +1,9 @@
+--- futures-0.1.14/Cargo.toml	2017-05-30T17:33:16+02:00
++++ futures-0.1.14/Cargo.toml	2017-06-15T16:58:26.341415+02:00
+@@ -24,6 +24,3 @@
+ use_std = []
+ with-deprecated = []
+ default = ["use_std", "with-deprecated"]
+-
+-[workspace]
+-members = ["futures-cpupool"]
