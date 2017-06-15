@@ -4,8 +4,8 @@
 %global crate rustfmt
 
 Name:           rust-%{crate}
-Version:        0.8.1
-Release:        2%{?dist}
+Version:        0.9.0
+Release:        1%{?dist}
 Summary:        Tool to find and fix Rust formatting issues
 
 License:        ASL 2.0 or MIT
@@ -13,7 +13,7 @@ URL:            https://crates.io/crates/rustfmt
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No windows
-Patch0:         rustfmt-0.8.1-fix-metadata.diff
+Patch0:         rustfmt-0.9.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -22,20 +22,18 @@ BuildRequires:  rust-packaging
 BuildRequires:  (crate(diff) >= 0.1.0 with crate(diff) < 0.2.0)
 BuildRequires:  (crate(env_logger) >= 0.4.0 with crate(env_logger) < 0.5.0)
 BuildRequires:  (crate(getopts) >= 0.2.0 with crate(getopts) < 0.3.0)
-BuildRequires:  (crate(itertools) >= 0.5.8 with crate(itertools) < 0.6.0)
 BuildRequires:  (crate(libc) >= 0.2.11 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
-BuildRequires:  (crate(multimap) >= 0.3.0 with crate(multimap) < 0.4.0)
 BuildRequires:  (crate(regex) >= 0.2.0 with crate(regex) < 0.3.0)
-BuildRequires:  (crate(rustc-serialize) >= 0.3.0 with crate(rustc-serialize) < 0.4.0)
-BuildRequires:  (crate(strings) >= 0.0.1 with crate(strings) < 0.0.2)
-BuildRequires:  (crate(syntex_errors) >= 0.58.0 with crate(syntex_errors) < 0.59.0)
-BuildRequires:  (crate(syntex_syntax) >= 0.58.0 with crate(syntex_syntax) < 0.59.0)
+BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
+BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
+BuildRequires:  (crate(serde_json) >= 1.0.0 with crate(serde_json) < 2.0.0)
+BuildRequires:  (crate(strings) >= 0.1.0 with crate(strings) < 0.2.0)
+BuildRequires:  (crate(syntex_errors) >= 0.59.0 with crate(syntex_errors) < 0.60.0)
+BuildRequires:  (crate(syntex_syntax) >= 0.59.0 with crate(syntex_syntax) < 0.60.0)
 BuildRequires:  (crate(term) >= 0.4.0 with crate(term) < 0.5.0)
-BuildRequires:  (crate(toml) >= 0.2.1 with crate(toml) < 0.3.0)
+BuildRequires:  (crate(toml) >= 0.4.0 with crate(toml) < 0.5.0)
 BuildRequires:  (crate(unicode-segmentation) >= 1.0.0 with crate(unicode-segmentation) < 2.0.0)
-# [build-dependencies]
-BuildRequires:  (crate(walkdir) >= 1.0.3 with crate(walkdir) < 2.0.0)
 
 %description
 %{summary}.
@@ -80,6 +78,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.9.0-1
+- Update to 0.9.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-2
 - Port to use rust-packaging
 
