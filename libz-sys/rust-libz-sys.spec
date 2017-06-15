@@ -5,8 +5,8 @@
 %global crate libz-sys
 
 Name:           rust-%{crate}
-Version:        1.0.13
-Release:        3%{?dist}
+Version:        1.0.14
+Release:        1%{?dist}
 Summary:        Bindings to the system libz library (also known as zlib)
 
 License:        MIT or ASL 2.0
@@ -14,7 +14,8 @@ URL:            https://crates.io/crates/libz-sys
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No [workspace]
-Patch0:         libz-sys-1.0.13-fix-metadata.diff
+# * No MSVC
+Patch0:         libz-sys-1.0.14-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -63,6 +64,9 @@ rm -vrf src/zlib-*/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.14-1
+- Update to 1.0.14
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.13-3
 - Port to use rust-packaging
 
