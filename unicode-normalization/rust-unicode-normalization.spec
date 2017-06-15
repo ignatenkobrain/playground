@@ -5,8 +5,8 @@
 %global crate unicode-normalization
 
 Name:           rust-%{crate}
-Version:        0.1.4
-Release:        2%{?dist}
+Version:        0.1.5
+Release:        1%{?dist}
 Summary:        Functions for normalization of Unicode strings
 
 License:        MIT or ASL 2.0
@@ -53,6 +53,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.5-1
+- Update to 0.1.5
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.4-2
 - Port to use rust-packaging
 
