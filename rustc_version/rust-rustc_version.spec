@@ -5,21 +5,22 @@
 %global crate rustc_version
 
 Name:           rust-%{crate}
-Version:        0.1.7
-Release:        2%{?dist}
+Version:        0.2.1
+Release:        1%{?dist}
 Summary:        Library for querying the version of a installed rustc compiler
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/rustc_version
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-# * bump semver, https://github.com/Kimundi/rustc-version-rs/pull/10
-Patch0:         rustc_version-0.1.7-fix-metadata.diff
+# * bump semver to 0.7, https://github.com/Kimundi/rustc-version-rs/pull/16
+Patch0:         rustc_version-0.2.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
-BuildRequires:  (crate(semver) >= 0.6.0 with crate(semver) < 0.7.0)
+# [dependencies]
+BuildRequires:  (crate(semver) >= 0.7.0 with crate(semver) < 0.8.0)
 
 %description
 %{summary}.
@@ -55,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.1-1
+- Update to 0.2.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.7-2
 - Port to use rust-packaging
 
