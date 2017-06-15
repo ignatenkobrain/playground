@@ -25,10 +25,14 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-%{summary}.
+Determine displayed width of `char` and `str` types
+according to Unicode Standard Annex #11 rules.
+
+This package contains library source intended for building other packages
+which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version}
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
