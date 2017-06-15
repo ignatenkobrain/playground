@@ -1,0 +1,9 @@
+--- extprim_literals_macros-2.0.0/Cargo.toml	2017-03-18T17:22:45+01:00
++++ extprim_literals_macros-2.0.0/Cargo.toml	2017-06-15T20:38:13.113253+02:00
+@@ -17,5 +17,5 @@
+ proc-macro = true
+ 
+ [dependencies]
+-extprim = { path = "../", version = "1.2" }
++extprim = { version = "1.2" }
+ procedural-masquerade = "0.1.1"
