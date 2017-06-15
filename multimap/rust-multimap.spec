@@ -5,8 +5,8 @@
 %global crate multimap
 
 Name:           rust-%{crate}
-Version:        0.3.0
-Release:        2%{?dist}
+Version:        0.4.0
+Release:        1%{?dist}
 Summary:        Multimap implementation
 
 License:        MIT or ASL 2.0
@@ -16,6 +16,12 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
+BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 1.1.0)
+%if %{with check}
+# [dev-dependencies]
+BuildRequires:  (crate(serde_test) >= 1.0.0 with crate(serde_test) < 1.1.0)
+%endif
 
 %description
 %{summary}.
@@ -51,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-1
+- Update to 0.4.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.0-2
 - Port to use rust-packaging
 
