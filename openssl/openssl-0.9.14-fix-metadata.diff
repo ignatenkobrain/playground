@@ -1,0 +1,14 @@
+--- openssl-0.9.14/Cargo.toml	2017-06-15T04:59:09+02:00
++++ openssl-0.9.14/Cargo.toml	2017-06-15T23:14:45.380561+02:00
+@@ -21,10 +21,8 @@
+ foreign-types = "0.2"
+ lazy_static = "0.2"
+ libc = "0.2"
+-openssl-sys = { version = "0.9.14", path = "../openssl-sys" }
++openssl-sys = { version = "0.9.14" }
+ 
+ [dev-dependencies]
+ tempdir = "0.3"
+-winapi = "0.2"
+-ws2_32-sys = "0.2"
+ hex = "0.2"
