@@ -1,7 +1,7 @@
---- term_size-0.2.3/Cargo.toml	2017-02-21T02:43:13+01:00
-+++ term_size-0.2.3/Cargo.toml	2017-02-25T21:11:39.682775+01:00
+--- term_size-0.3.0/Cargo.toml	2017-04-09T20:37:48+02:00
++++ term_size-0.3.0/Cargo.toml	2017-06-15T17:56:38.642986+02:00
 @@ -10,23 +10,13 @@
- license = "MIT/Apache-2.0"
+ license = "MIT OR Apache-2.0"
  keywords = ["term", "terminal", "size", "width", "dimension"]
  
 -[dependencies]

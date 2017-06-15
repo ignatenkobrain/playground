@@ -5,8 +5,8 @@
 %global crate term_size
 
 Name:           rust-%{crate}
-Version:        0.2.3
-Release:        2%{?dist}
+Version:        0.3.0
+Release:        1%{?dist}
 Summary:        Functions for determining terminal sizes and dimensions
 
 License:        MIT or ASL 2.0
@@ -14,11 +14,12 @@ URL:            https://crates.io/crates/term_size
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
-Patch0:         term_size-0.2.3-fix-metadata.diff
+Patch0:         term_size-0.3.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(libc) >= 0.2.20 with crate(libc) < 0.3.0)
 
 %description
@@ -55,6 +56,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.0-1
+- Update to 0.3.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.3-2
 - Port to use rust-packaging
 
