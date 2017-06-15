@@ -17,6 +17,7 @@ ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(lazy_static) >= 0.2.0 with crate(lazy_static) < 0.3.0)
 %endif
 
