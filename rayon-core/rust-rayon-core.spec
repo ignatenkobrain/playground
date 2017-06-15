@@ -6,11 +6,10 @@
 %global crate rayon-core
 
 Name:           rust-%{crate}
-Version:        1.2.0
+Version:        1.2.1
 Release:        1%{?dist}
 Summary:        Core APIs for Rayon
 
-# https://github.com/nikomatsakis/rayon/issues/374
 License:        ASL 2.0 or MIT
 URL:            https://crates.io/crates/rayon-core
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
@@ -55,8 +54,12 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-APACHE LICENSE-MIT
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.1-1
+- Update to 1.2.1
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.0-1
 - Initial package
