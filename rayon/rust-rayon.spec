@@ -6,27 +6,26 @@
 %global crate rayon
 
 Name:           rust-%{crate}
-Version:        0.6.0
-Release:        2%{?dist}
+Version:        0.8.1
+Release:        1%{?dist}
 Summary:        Simple work-stealing parallelism for Rust
 
 License:        ASL 2.0 or MIT
 URL:            https://crates.io/crates/rayon
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * No [workspace]
-Patch0:         rayon-0.6.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
-BuildRequires:  (crate(deque) >= 0.3.1 with crate(deque) < 0.4.0)
-BuildRequires:  (crate(libc) >= 0.2.16 with crate(libc) < 0.3.0)
-BuildRequires:  (crate(num_cpus) >= 1.0.0 with crate(num_cpus) < 2.0.0)
-BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
+# [dependencies]
+BuildRequires:  (crate(rayon-core) >= 1.2.0 with crate(rayon-core) < 2.0.0)
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(compiletest_rs) >= 0.2.1 with crate(compiletest_rs) < 0.3.0)
-BuildRequires:  (crate(num) >= 0.1.30 with crate(num) < 0.2.0)
+BuildRequires:  (crate(docopt) >= 0.7.0 with crate(docopt) < 0.8.0)
+BuildRequires:  (crate(futures) >= 0.1.7 with crate(futures) < 0.2.0)
+BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
+BuildRequires:  (crate(rustc-serialize) >= 0.3.0 with crate(rustc-serialize) < 0.4.0)
 %endif
 
 %description
@@ -63,6 +62,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-1
+- Update to 0.8.1
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-2
 - Port to use rust-packaging
 
