@@ -1,5 +1,5 @@
---- num-rational-0.1.36/Cargo.toml	2017-02-26T22:16:36+01:00
-+++ num-rational-0.1.36/Cargo.toml	2017-03-02T10:22:45.012460+01:00
+--- num-rational-0.1.38/Cargo.toml	2017-06-09T19:58:22+02:00
++++ num-rational-0.1.38/Cargo.toml	2017-06-15T16:11:19.626928+02:00
 @@ -13,15 +13,12 @@
  
  [dependencies.num-bigint]
