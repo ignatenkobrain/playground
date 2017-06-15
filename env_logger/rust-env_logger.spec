@@ -5,16 +5,13 @@
 %global crate env_logger
 
 Name:           rust-%{crate}
-Version:        0.4.2
-Release:        2%{?dist}
+Version:        0.4.3
+Release:        1%{?dist}
 Summary:        Logging implementation for `log` which is configured via an environment variable
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/env_logger
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * No paths
-Patch0:         env_logger-0.4.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -57,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.3-1
+- Update to 0.4.3
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-2
 - Port to use rust-packaging
 
