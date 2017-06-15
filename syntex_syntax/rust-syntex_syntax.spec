@@ -5,25 +5,29 @@
 %global crate syntex_syntax
 
 Name:           rust-%{crate}
-Version:        0.58.1
-Release:        2%{?dist}
-Summary:        Export of libsyntax for code generation
+Version:        0.59.0
+Release:        1%{?dist}
+Summary:        Backport of libsyntax
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_syntax
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-Patch0:         syntex_syntax-0.58.1-fix-metadata.diff
+# Fix builds, https://github.com/serde-rs/syntex/pull/123
+Patch0001:      0001-hide-unused-variable-when-not-used.patch
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
-BuildRequires:  (crate(bitflags) >= 0.8.0 with crate(bitflags) < 0.9.0)
-BuildRequires:  (crate(log) >= 0.3.6 with crate(log) < 0.4.0)
-BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
-BuildRequires:  (crate(syntex_errors) >= 0.58.0 with crate(syntex_errors) < 0.59.0)
-BuildRequires:  (crate(syntex_pos) >= 0.58.0 with crate(syntex_pos) < 0.59.0)
-BuildRequires:  (crate(unicode-xid) >= 0.0.4 with crate(unicode-xid) < 0.0.5)
+# [dependencies]
+BuildRequires:  (crate(bitflags) >= 0.9.0 with crate(bitflags) < 0.10.0)
+BuildRequires:  (crate(extprim) >= 1.0.0 with crate(extprim) < 2.0.0)
+BuildRequires:  (crate(log) >= 0.3.0 with crate(log) < 0.4.0)
+BuildRequires:  ((crate(serde) >= 1.0.0 with crate(serde) < 2.0.0) with crate(serde/rc))
+BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
+BuildRequires:  (crate(serde_json) >= 1.0.0 with crate(serde_json) < 2.0.0)
+BuildRequires:  (crate(syntex_errors) >= 0.59.0 with crate(syntex_errors) < 0.60.0)
+BuildRequires:  (crate(syntex_pos) >= 0.59.0 with crate(syntex_pos) < 0.60.0)
+BuildRequires:  (crate(unicode-xid) >= 0.1.0 with crate(unicode-xid) < 0.2.0)
 
 %description
 %{summary}.
@@ -33,13 +37,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-Export of libsyntax for code generation.
+Backport of libsyntax.
 
 This package contains library source intended for building other packages
 which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version} -p1
+%autosetup -n %{crate}-%{version} -p2
 %cargo_prep
 
 %build
@@ -59,6 +63,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.0-1
+- Update to 0.59.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-2
 - Port to use rust-packaging
 
