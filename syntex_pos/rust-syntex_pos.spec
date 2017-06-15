@@ -5,9 +5,9 @@
 %global crate syntex_pos
 
 Name:           rust-%{crate}
-Version:        0.58.1
-Release:        2%{?dist}
-Summary:        Export of libsyntax_pos for code generation
+Version:        0.59.0
+Release:        1%{?dist}
+Summary:        Backport of libsyntax_pos
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_pos
@@ -16,7 +16,9 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
-BuildRequires:  (crate(rustc-serialize) >= 0.3.16 with crate(rustc-serialize) < 0.4.0)
+# [dependencies]
+BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
+BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
 
 %description
 %{summary}.
@@ -26,7 +28,7 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-Export of libsyntax_pos for code generation.
+Backport of libsyntax_pos.
 
 This package contains library source intended for building other packages
 which use %{crate} from crates.io.
@@ -52,6 +54,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.0-1
+- Update to 0.59.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.58.1-2
 - Port to use rust-packaging
 
