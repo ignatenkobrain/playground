@@ -5,8 +5,8 @@
 %global crate encoding_rs
 
 Name:           rust-%{crate}
-Version:        0.5.0
-Release:        2%{?dist}
+Version:        0.6.11
+Release:        1%{?dist}
 Summary:        Gecko-oriented implementation of the Encoding Standard
 
 License:        MIT or ASL 2.0
@@ -14,14 +14,15 @@ URL:            https://crates.io/crates/encoding_rs
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No simd
-Patch0:         encoding_rs-0.5.0-fix-metadata.diff
+# * Bump rayon to 0.8, https://github.com/hsivonen/encoding_rs/pull/17
+Patch0:         encoding_rs-0.6.11-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(cfg-if) >= 0.1.0 with crate(cfg-if) < 0.2.0)
-BuildRequires:  (crate(rayon) >= 0.6.0 with crate(rayon) < 0.7.0)
+BuildRequires:  (crate(rayon) >= 0.8.0 with crate(rayon) < 0.9.0)
 
 %description
 %{summary}.
@@ -57,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.11-1
+- Update to 0.6.11
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-2
 - Port to use rust-packaging
 
