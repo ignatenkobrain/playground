@@ -5,8 +5,8 @@
 %global crate libssh2-sys
 
 Name:           rust-%{crate}
-Version:        0.2.5
-Release:        3%{?dist}
+Version:        0.2.6
+Release:        1%{?dist}
 Summary:        Native bindings to the libssh2 library
 
 # https://github.com/alexcrichton/ssh2-rs/issues/55
@@ -61,6 +61,9 @@ rm -vrf libssh2/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.6-1
+- Update to 0.2.6
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.5-3
 - Port to use rust-packaging
 
