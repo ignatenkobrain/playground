@@ -5,9 +5,9 @@
 %global crate unicode-xid
 
 Name:           rust-%{crate}
-Version:        0.0.4
-Release:        2%{?dist}
-Summary:        Determine whether characters have properties according to Unicode Standard Annex #31
+Version:        0.1.0
+Release:        1%{?dist}
+Summary:        Determine whether characters have XID_Start/XID_Continue properties according to Unicode Standard Annex #31
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/unicode-xid
@@ -52,6 +52,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-1
+- Update to 0.1.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.0.4-2
 - Port to use rust-packaging
 
