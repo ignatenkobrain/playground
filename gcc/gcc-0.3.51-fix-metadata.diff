@@ -1,0 +1,11 @@
+--- gcc-0.3.51/Cargo.toml	2017-06-14T00:38:03+02:00
++++ gcc-0.3.51/Cargo.toml	2017-06-15T22:59:33.668392+02:00
+@@ -18,7 +18,7 @@
+ appveyor = { repository = "alexcrichton/gcc-rs" }
+ 
+ [dependencies]
+-rayon = { version = "0.7", optional = true }
++rayon = { version = "0.8", optional = true }
+ 
+ [features]
+ parallel = ["rayon"]
