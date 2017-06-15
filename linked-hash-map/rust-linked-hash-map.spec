@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.4.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        HashMap wrapper that holds key-value pairs in insertion order
 
 License:        MIT or ASL 2.0
@@ -15,14 +15,17 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 # Initial patched metadata
 # * clippy is nightly
 Patch0:         linked-hash-map-0.4.2-fix-metadata.diff
+# Bump serde to 1.0, https://github.com/contain-rs/linked-hash-map/pull/84
+Patch0001:      0001-upgrade-serde-support-for-serde1.0.patch
+Patch0002:      0002-port-tests-to-serde-1.0.patch
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
 BuildRequires:  (crate(heapsize) >= 0.3.9 with crate(heapsize) < 0.4.0)
-BuildRequires:  (crate(serde) >= 0.9.0 with crate(serde) < 0.10.0)
-BuildRequires:  (crate(serde_test) >= 0.9.0 with crate(serde_test) < 0.10.0)
+BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
+BuildRequires:  (crate(serde_test) >= 1.0.0 with crate(serde_test) < 2.0.0)
 
 %description
 %{summary}.
@@ -58,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-3
+- Bump serde to 1.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-2
 - Port to use rust-packaging
 

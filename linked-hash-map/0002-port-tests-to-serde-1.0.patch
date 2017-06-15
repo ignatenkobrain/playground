@@ -1,0 +1,44 @@
+From 050b4852bc2522c10186858332620473f1547277 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <ignatenko@redhat.com>
+Date: Thu, 15 Jun 2017 13:32:56 +0200
+Subject: [PATCH 2/2] port tests to serde 1.0
+
+Signed-off-by: Igor Gnatenko <ignatenko@redhat.com>
+---
+ tests/serde.rs | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/tests/serde.rs b/tests/serde.rs
+index 48ba51c..e6d5c6f 100644
+--- a/tests/serde.rs
++++ b/tests/serde.rs
+@@ -11,7 +11,7 @@ fn test_ser_de_empty() {
+     let map = LinkedHashMap::<char, u32>::new();
+ 
+     assert_tokens(&map, &[
+-        Token::MapStart(Some(0)),
++        Token::Map { len: Some(0) },
+         Token::MapEnd,
+     ]);
+ }
+@@ -24,16 +24,13 @@ fn test_ser_de() {
+     map.insert('c', 30);
+ 
+     assert_tokens(&map, &[
+-        Token::MapStart(Some(3)),
+-            Token::MapSep,
++        Token::Map { len: Some(3) },
+             Token::Char('b'),
+             Token::I32(20),
+ 
+-            Token::MapSep,
+             Token::Char('a'),
+             Token::I32(10),
+ 
+-            Token::MapSep,
+             Token::Char('c'),
+             Token::I32(30),
+         Token::MapEnd,
+-- 
+2.13.1
+
