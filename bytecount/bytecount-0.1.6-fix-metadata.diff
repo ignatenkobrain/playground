@@ -1,5 +1,5 @@
 --- bytecount-0.1.6/Cargo.toml	2017-01-10T23:53:28+01:00
-+++ bytecount-0.1.6/Cargo.toml	2017-02-25T20:28:28.254379+01:00
++++ bytecount-0.1.6/Cargo.toml	2017-06-15T11:38:22.791773+02:00
 @@ -9,15 +9,8 @@
  [lib]
  bench = false
@@ -13,7 +13,7 @@
 -
  [dev-dependencies]
 -quickcheck = "0.3.1"
-+quickcheck = "0.4.1"
++quickcheck = "0.4.0"
  rand = "0.3.14"
  bencher = "0.1"
  

@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Count occurrences of a byte in a byte slice, fast
 
 License:        ASL 2.0 or MIT
@@ -14,16 +14,16 @@ URL:            https://crates.io/crates/bytecount
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * simd is not what we want
-# * better to have latest version of quickcheck
-#   https://github.com/llogiq/bytecount/pull/20
+# * Bump quickcheck to 0.4, https://github.com/llogiq/bytecount/commit/67868286c8750e1299eb310be17657bb5822eaed
 Patch0:         bytecount-0.1.6-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 %if %{with check}
+# [dev-dependencies]
 BuildRequires:  (crate(bencher) >= 0.1.0 with crate(bencher) < 0.2.0)
-BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
+BuildRequires:  (crate(quickcheck) >= 0.4.0 with crate(quickcheck) < 0.5.0)
 BuildRequires:  (crate(rand) >= 0.3.14 with crate(rand) < 0.4.0)
 %endif
 
@@ -61,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.6-3
+- Relax quickcheck version
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.6-2
 - Port to use rust-packaging
 
