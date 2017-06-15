@@ -20,6 +20,7 @@ Patch0:         yaml-rust-0.3.5-fix-metadata.diff
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
+# [dependencies]
 BuildRequires:  (crate(linked-hash-map) >= 0.0.9 with crate(linked-hash-map) < 0.5.0)
 
 %description
