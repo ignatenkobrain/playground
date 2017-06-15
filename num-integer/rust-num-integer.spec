@@ -5,8 +5,8 @@
 %global crate num-integer
 
 Name:           rust-%{crate}
-Version:        0.1.33
-Release:        2%{?dist}
+Version:        0.1.34
+Release:        1%{?dist}
 Summary:        Integer traits and functions
 
 License:        MIT or ASL 2.0
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/num-integer
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No paths
-Patch0:         num-integer-0.1.33-fix-metadata.diff
+Patch0:         num-integer-0.1.34-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
