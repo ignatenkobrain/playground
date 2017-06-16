@@ -1,0 +1,11 @@
+--- base64-0.6.0/Cargo.toml	2017-06-11T01:12:39+02:00
++++ base64-0.6.0/Cargo.toml	2017-06-16T17:41:05.511497+02:00
+@@ -15,7 +15,7 @@
+ safemem = "0.2.0"
+ 
+ [dev-dependencies]
+-rand = "=0.3.15"
++rand = "0.3.15"
+ 
+ [profile.bench]
+ # Uncomment when using `perf record`
