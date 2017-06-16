@@ -1,0 +1,14 @@
+--- net2-0.2.29/Cargo.toml	2017-05-04T16:38:55+02:00
++++ net2-0.2.29/Cargo.toml	2017-06-16T07:31:30.130551+02:00
+@@ -10,11 +10,6 @@
+ description = """
+ Extensions to the standard library's networking types as proposed in RFC 1158.
+ """
+-
+-[target."cfg(windows)".dependencies]
+-ws2_32-sys = "0.2"
+-winapi = "0.2"
+-kernel32-sys = "0.2"
+ 
+ [target."cfg(unix)".dependencies]
+ libc = "0.2.14"
