@@ -1,0 +1,9 @@
+--- tokio-core-0.1.8/Cargo.toml	2017-06-07T22:29:10+02:00
++++ tokio-core-0.1.8/Cargo.toml	2017-06-16T08:40:56.735819+02:00
+@@ -27,5 +27,5 @@
+ futures = "0.1.14"
+ 
+ [dev-dependencies]
+-env_logger = { version = "0.3", default-features = false }
++env_logger = { version = "0.4", default-features = false }
+ libc = "0.2"
