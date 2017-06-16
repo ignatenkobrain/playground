@@ -1,0 +1,8 @@
+--- chrono-0.3.1/Cargo.toml	2017-05-01T20:14:13+02:00
++++ chrono-0.3.1/Cargo.toml	2017-06-16T10:03:49.512320+02:00
+@@ -27,4 +27,4 @@
+ 
+ [dev-dependencies]
+ serde_json = { version = "1" }
+-bincode = { version = "0.7.0", features = ["serde"], default-features = false }
++bincode = { version = "0.8.0" }
