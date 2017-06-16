@@ -1,0 +1,13 @@
+--- lazycell-0.5.1/Cargo.toml	2017-03-24T04:11:12+01:00
++++ lazycell-0.5.1/Cargo.toml	2017-06-16T07:42:02.289128+02:00
+@@ -17,10 +17,3 @@
+     "README.md",
+     "src/**/*.rs",
+ ]
+-
+-[dependencies]
+-clippy = { version = "0.0", optional = true }
+-
+-[features]
+-nightly = []
+-nightly-testing = ["clippy", "nightly"]
