@@ -1,0 +1,20 @@
+--- cryptovec-0.3.4/Cargo.toml	2017-05-20T16:48:34+02:00
++++ cryptovec-0.3.4/Cargo.toml	2017-06-20T16:02:18.204182+02:00
+@@ -10,5 +10,3 @@
+ 
+ [dependencies]
+ libc = "0.2"
+-winapi = "0.2"
+-kernel32-sys = "0.2"
+--- cryptovec-0.3.4/src/lib.rs	2017-05-20 16:48:10.000000000 +0200
++++ cryptovec-0.3.4/src/lib.rs	2017-06-20 16:04:31.530991420 +0200
+@@ -13,7 +13,9 @@
+ // limitations under the License.
+ //
+ extern crate libc;
++#[cfg(windows)]
+ extern crate winapi;
++#[cfg(windows)]
+ extern crate kernel32;
+ use libc::{malloc, free, c_void};
+ #[cfg(not(windows))]
