@@ -5,7 +5,7 @@
 %global crate toml
 
 Name:           rust-%{crate}
-Version:        0.4.1
+Version:        0.4.2
 Release:        1%{?dist}
 Summary:        Native Rust encoder and decoder of TOML-formatted files and streams
 
@@ -60,6 +60,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Jun 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.2-1
+- Update to 0.4.2
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.1-1
 - Update to 0.4.1
 
