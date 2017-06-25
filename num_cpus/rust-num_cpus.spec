@@ -5,7 +5,7 @@
 %global crate num_cpus
 
 Name:           rust-%{crate}
-Version:        1.5.1
+Version:        1.6.2
 Release:        1%{?dist}
 Summary:        Get the number of CPUs on a machine
 
@@ -53,6 +53,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sun Jun 25 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.6.2-1
+- Update to 1.6.2
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.5.1-1
 - Update to 1.5.1
 
