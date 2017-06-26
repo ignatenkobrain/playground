@@ -5,7 +5,7 @@
 %global crate syntex_errors
 
 Name:           rust-%{crate}
-Version:        0.59.0
+Version:        0.59.1
 Release:        1%{?dist}
 Summary:        Backport of librustc_errors
 
@@ -58,6 +58,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jun 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.1-1
+- Update to 0.59.1
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.0-1
 - Update to 0.59.0
 
