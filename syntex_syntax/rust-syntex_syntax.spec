@@ -5,15 +5,13 @@
 %global crate syntex_syntax
 
 Name:           rust-%{crate}
-Version:        0.59.0
+Version:        0.59.1
 Release:        1%{?dist}
 Summary:        Backport of libsyntax
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/syntex_syntax
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Fix builds, https://github.com/serde-rs/syntex/pull/123
-Patch0001:      0001-hide-unused-variable-when-not-used.patch
 
 ExclusiveArch:  %{rust_arches}
 
@@ -37,13 +35,13 @@ Summary:        %{summary}
 BuildArch:      noarch
 
 %description    devel
-Backport of libsyntax.
+Backport of libsyntax
 
 This package contains library source intended for building other packages
 which use %{crate} from crates.io.
 
 %prep
-%autosetup -n %{crate}-%{version} -p2
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %build
@@ -63,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jun 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.1-1
+- Update to 0.59.1
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.59.0-1
 - Update to 0.59.0
 
