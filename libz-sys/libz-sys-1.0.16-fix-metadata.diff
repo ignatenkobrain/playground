@@ -1,5 +1,5 @@
---- libz-sys-1.0.14/Cargo.toml	2017-06-13T04:23:04+02:00
-+++ libz-sys-1.0.14/Cargo.toml	2017-06-15T23:08:00.325917+02:00
+--- libz-sys-1.0.16/Cargo.toml	2017-06-20T07:24:28+02:00
++++ libz-sys-1.0.16/Cargo.toml	2017-06-26T08:44:49.682742+02:00
 @@ -13,15 +13,9 @@
  """
  categories = ["external-ffi-bindings"]

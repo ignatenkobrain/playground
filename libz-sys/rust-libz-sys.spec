@@ -5,7 +5,7 @@
 %global crate libz-sys
 
 Name:           rust-%{crate}
-Version:        1.0.14
+Version:        1.0.16
 Release:        1%{?dist}
 Summary:        Bindings to the system libz library (also known as zlib)
 
@@ -15,7 +15,7 @@ Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{
 # Initial patched metadata
 # * No [workspace]
 # * No MSVC
-Patch0:         libz-sys-1.0.14-fix-metadata.diff
+Patch0:         libz-sys-1.0.16-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -64,6 +64,9 @@ rm -vrf src/zlib-*/
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jun 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.16-1
+- Update to 1.0.16
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.0.14-1
 - Update to 1.0.14
 
