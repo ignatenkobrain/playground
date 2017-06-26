@@ -5,17 +5,13 @@
 %global crate chrono
 
 Name:           rust-%{crate}
-Version:        0.3.1
+Version:        0.4.0
 Release:        1%{?dist}
 Summary:        Date and time library for Rust
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/chrono
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * Bump bincode to 0.8, https://github.com/chronotope/chrono/commit/a91981af026052d6a1b9591f3c7f18a46842a5c5
-# * Remove serde feature from bincode, https://github.com/chronotope/chrono/pull/160
-Patch0:         chrono-0.3.1-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -28,6 +24,7 @@ BuildRequires:  (crate(time) >= 0.1.36 with crate(time) < 0.2.0)
 %if %{with check}
 # [dev-dependencies]
 BuildRequires:  (crate(bincode) >= 0.8.0 with crate(bincode) < 0.9.0)
+BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
 BuildRequires:  (crate(serde_json) >= 1.0.0 with crate(serde_json) < 2.0.0)
 %endif
 
@@ -65,5 +62,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jun 26 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.4.0-1
+- Update to 0.4.0
+
 * Fri Jun 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.1-1
 - Initial package
