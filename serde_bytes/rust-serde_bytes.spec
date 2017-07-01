@@ -7,7 +7,7 @@
 %global crate serde_bytes
 
 Name:           rust-%{crate}
-Version:        0.10.0
+Version:        0.10.1
 Release:        1%{?dist}
 Summary:        Optimized handling of `&[u8]` and `Vec<u8>` for Serde
 
@@ -22,6 +22,7 @@ BuildRequires:  rust-packaging
 BuildRequires:  (crate(serde) >= 1.0.0 with crate(serde) < 2.0.0)
 %if %{with check}
 # [dev-dependencies]
+BuildRequires:  (crate(bincode) >= 0.8.0 with crate(bincode) < 0.9.0)
 BuildRequires:  (crate(serde_derive) >= 1.0.0 with crate(serde_derive) < 2.0.0)
 BuildRequires:  (crate(serde_test) >= 1.0.0 with crate(serde_test) < 2.0.0)
 %endif
@@ -60,5 +61,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Jul 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.10.1-1
+- Update to 0.10.1
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.10.0-1
 - Initial package
