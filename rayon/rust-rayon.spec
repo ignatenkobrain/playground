@@ -6,7 +6,7 @@
 %global crate rayon
 
 Name:           rust-%{crate}
-Version:        0.8.1
+Version:        0.8.2
 Release:        1%{?dist}
 Summary:        Simple work-stealing parallelism for Rust
 
@@ -62,6 +62,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Jul 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.2-1
+- Update to 0.8.2
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.1-1
 - Update to 0.8.1
 
