@@ -5,7 +5,7 @@
 %global crate thread-id
 
 Name:           rust-%{crate}
-Version:        3.1.0
+Version:        3.2.0
 Release:        1%{?dist}
 Summary:        Get a unique thread ID
 
@@ -13,7 +13,9 @@ License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/thread-id
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
-Patch0:         thread-id-3.1.0-fix-metadata.diff
+# * No windows
+# * No redox
+Patch0:         thread-id-3.2.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -55,6 +57,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Jul 01 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.2.0-1
+- Update to 3.2.0
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 3.1.0-1
 - Update to 3.1.0
 
