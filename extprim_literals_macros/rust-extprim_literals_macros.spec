@@ -5,24 +5,20 @@
 %global crate extprim_literals_macros
 
 Name:           rust-%{crate}
-Version:        2.0.0
+Version:        2.0.2
 Release:        1%{?dist}
 Summary:        Internal crate to support `extprim_literals`
 
-# https://github.com/kennytm/extprim/issues/7
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/extprim_literals_macros
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * No paths
-Patch0:         extprim_literals_macros-2.0.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
-BuildRequires:  (crate(extprim) >= 1.2.0 with crate(extprim) < 2.0.0)
-BuildRequires:  (crate(procedural-masquerade) >= 0.1.1 with crate(procedural-masquerade) < 0.2.0)
+BuildRequires:  (crate(extprim) >= 1.3.0 with crate(extprim) < 2.0.0)
+BuildRequires:  (crate(procedural-masquerade) >= 0.1.0 with crate(procedural-masquerade) < 0.2.0)
 
 %description
 %{summary}.
@@ -54,8 +50,12 @@ which use %{crate} from crates.io.
 %endif
 
 %files          devel
+%license LICENSE-MIT.txt LICENSE-APACHE.txt
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jul 03 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.0.2-1
+- Update to 2.0.2
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.0.0-1
 - Initial package
