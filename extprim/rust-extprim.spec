@@ -6,24 +6,20 @@
 %global crate extprim
 
 Name:           rust-%{crate}
-Version:        1.2.2
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        Extra primitive types (u128, i128)
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/extprim
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * No [workspace]
-# * No paths
-Patch0:         extprim-1.2.2-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 # [dependencies]
-BuildRequires:  (crate(num-traits) >= 0.1.37 with crate(num-traits) < 0.2.0)
-BuildRequires:  (crate(rand) >= 0.3.15 with crate(rand) < 0.4.0)
+BuildRequires:  (crate(num-traits) >= 0.1.0 with crate(num-traits) < 0.2.0)
+BuildRequires:  (crate(rand) >= 0.3.0 with crate(rand) < 0.4.0)
 # [build-dependencies]
 BuildRequires:  (crate(rustc_version) >= 0.2.0 with crate(rustc_version) < 0.3.0)
 %if %{with check}
@@ -65,5 +61,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Mon Jul 03 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.3.0-1
+- Update to 1.3.0
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 1.2.2-1
 - Initial package
