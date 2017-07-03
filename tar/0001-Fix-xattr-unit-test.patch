@@ -1,0 +1,28 @@
+From 58e6053622606091a714a1b16387356e86394a25 Mon Sep 17 00:00:00 2001
+From: Ian Douglas Scott <ian@iandouglasscott.com>
+Date: Fri, 30 Jun 2017 16:19:21 -0700
+Subject: [PATCH] Fix xattr unit test
+
+Fixes #100
+---
+ tests/all.rs | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/tests/all.rs b/tests/all.rs
+index 3e8744a..dc21e61 100644
+--- a/tests/all.rs
++++ b/tests/all.rs
+@@ -192,7 +192,9 @@ fn extracting_directories() {
+ #[test]
+ #[cfg(all(unix, feature = "xattr"))]
+ fn xattrs() {
+-    let td = t!(TempDir::new("tar-rs"));
++    // If /tmp is a tmpfs, xattr will fail
++    // The xattr crate's unit tests also use /var/tmp for this reason
++    let td = t!(TempDir::new_in("/var/tmp", "tar-rs"));
+     let rdr = Cursor::new(tar!("xattrs.tar"));
+     let mut ar = Archive::new(rdr);
+     ar.set_unpack_xattrs(true);
+-- 
+2.13.2
+
