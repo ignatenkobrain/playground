@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.51
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Build-time dependency for Cargo to assist in invoking the native C compiler
 
 License:        MIT or ASL 2.0
@@ -25,16 +25,30 @@ BuildRequires:  (crate(rayon) >= 0.8.0 with crate(rayon) < 0.9.0)
 # [dev-dependencies]
 BuildRequires:  (crate(tempdir) >= 0.3.0 with crate(tempdir) < 0.4.0)
 %endif
+%if 0%{?mageia} && 0%{?mageia} < 7
+# Mageia doesn't have file provides for gcc and g++ yet
+# See: https://bugs.mageia.org/show_bug.cgi?id=21189
+BuildRequires:  gcc
+BuildRequires:  gcc-c++
+%else
 BuildRequires:  %{_bindir}/gcc
 BuildRequires:  %{_bindir}/g++
+%endif
 
 %description
 %{summary}.
 
 %package        devel
 Summary:        %{summary}
+%if 0%{?mageia} && 0%{?mageia} < 7
+# Mageia doesn't have file provides for gcc and g++ yet
+# See: https://bugs.mageia.org/show_bug.cgi?id=21189
+Requires:       gcc
+Requires:       gcc-c++
+%else
 Requires:       %{_bindir}/gcc
 Requires:       %{_bindir}/g++
+%endif
 BuildArch:      noarch
 
 %description    devel
@@ -69,6 +83,9 @@ rm -vf %{buildroot}%{_bindir}/gcc-shim
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jul 05 2017 Neal Gompa <ngompa13@gmail.com> - 0.3.51-2
+- Fix dependency on gcc and g++ for Mageia
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.51-1
 - Update to 0.3.51
 
