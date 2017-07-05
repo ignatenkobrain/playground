@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Demangle Rust symbol names
 
 License:        ASL 2.0
@@ -51,6 +51,9 @@ Summary:        %{summary}
 %{_bindir}/rustfilt
 
 %changelog
+* Wed Jul 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-2
+- Rebuild for clap
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-1
 - Update to 0.2.0
 
