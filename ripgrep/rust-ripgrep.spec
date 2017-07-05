@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.5.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Line oriented search tool using Rust's regex library
 
 License:        Unlicense or MIT
@@ -74,6 +74,9 @@ install -D -p -m0644 doc/rg.1 %{buildroot}%{_mandir}/man1/rg.1
 %{_mandir}/man1/rg.1*
 
 %changelog
+* Wed Jul 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-3
+- Rebuild for clap
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.2-2
 - Bump encoding_rs to 0.6
 
