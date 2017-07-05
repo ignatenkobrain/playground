@@ -5,7 +5,7 @@
 %global crate clap
 
 Name:           rust-%{crate}
-Version:        2.24.2
+Version:        2.25.0
 Release:        1%{?dist}
 Summary:        Simple to use, efficient, and full featured  Command Line Argument Parser
 
@@ -14,9 +14,8 @@ URL:            https://crates.io/crates/clap
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * clippy is nightly
-Patch0:         clap-2.24.2-fix-metadata.diff
-# Bump bitflags to 0.9, https://github.com/kbknapp/clap-rs/commit/77763e1e293f3e06028082ab520bce512603a503
-Patch0001:      0001-Update-bitflags-0.8.0-0.9.patch
+# * Loose unicode-segmentation requirements, it was done to support old Rust
+Patch0:         clap-2.25.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -27,7 +26,8 @@ BuildRequires:  (crate(atty) >= 0.2.2 with crate(atty) < 0.3.0)
 BuildRequires:  (crate(bitflags) >= 0.9.0 with crate(bitflags) < 0.10.0)
 BuildRequires:  (crate(strsim) >= 0.6.0 with crate(strsim) < 0.7.0)
 BuildRequires:  (crate(term_size) >= 0.3.0 with crate(term_size) < 0.4.0)
-BuildRequires:  (crate(unicode-segmentation) >= 1.0.1 with crate(unicode-segmentation) < 2.0.0)
+BuildRequires:  (crate(textwrap) >= 0.6.0 with crate(textwrap) < 0.7.0)
+BuildRequires:  (crate(unicode-segmentation) >= 1.1.0 with crate(unicode-segmentation) < 2.0.0)
 BuildRequires:  (crate(unicode-width) >= 0.1.4 with crate(unicode-width) < 0.2.0)
 BuildRequires:  (crate(vec_map) >= 0.8.0 with crate(vec_map) < 0.9.0)
 BuildRequires:  (crate(yaml-rust) >= 0.3.5 with crate(yaml-rust) < 0.4.0)
@@ -71,6 +71,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Wed Jul 05 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.25.0-1
+- Update to 2.25.0
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproejct.org> - 2.24.2-1
 - Update to 2.24.2
 

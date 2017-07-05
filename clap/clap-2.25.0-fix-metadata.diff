@@ -1,0 +1,23 @@
+--- clap-2.25.0/Cargo.toml	1970-01-01T01:00:00+01:00
++++ clap-2.25.0/Cargo.toml	2017-07-05T11:31:32.750532+02:00
+@@ -85,12 +85,8 @@
+ [dependencies.vec_map]
+ version = "0.8"
+ 
+-[dependencies.clippy]
+-version = "~0.0.131"
+-optional = true
+-
+ [dependencies.unicode-segmentation]
+-version = "~1.1.0"
++version = "1.1.0"
+ 
+ [dependencies.bitflags]
+ version = "0.9"
+@@ -112,6 +108,4 @@
+ no_cargo = []
+ wrap_help = ["term_size"]
+ suggestions = ["strsim"]
+-nightly = []
+ debug = []
+-lints = ["clippy"]
