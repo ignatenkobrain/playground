@@ -5,7 +5,7 @@
 %global crate time
 
 Name:           rust-%{crate}
-Version:        0.1.37
+Version:        0.1.38
 Release:        1%{?dist}
 Summary:        Utilities for working with time-related functions in Rust
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/time
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * No windows
-Patch0:         time-0.1.37-fix-metadata.diff
+Patch0:         time-0.1.38-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -61,6 +61,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Jul 07 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.38-1
+- Update to 0.1.38
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.36-3
 - Port to use rust-packaging
 
