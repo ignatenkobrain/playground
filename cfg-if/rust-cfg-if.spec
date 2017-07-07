@@ -5,7 +5,7 @@
 %global crate cfg-if
 
 Name:           rust-%{crate}
-Version:        0.1.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        Macro to ergonomically define an item depending on a large number of #[cfg] parameters
 
@@ -53,6 +53,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Jul 07 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.2-1
+- Update to 0.1.2
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.1-1
 - Update to 0.1.1
 
