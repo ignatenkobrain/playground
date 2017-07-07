@@ -6,15 +6,12 @@
 
 Name:           rust-%{crate}
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Binary serialization / deserialization strategy that uses Serde
 
 License:        MIT
 URL:            https://crates.io/crates/bincode
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
-# Initial patched metadata
-# * Replace 1.*.* with 1.* until we have support in rust2rpm
-Patch0:         bincode-0.8.0-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -64,5 +61,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Sat Jul 08 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-2
+- Don't patch 1.*.*
+
 * Fri Jun 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.8.0-1
 - Initial package
