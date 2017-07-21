@@ -1,0 +1,20 @@
+--- bytecount-0.1.7/Cargo.toml	1970-01-01T01:00:00+01:00
++++ bytecount-0.1.7/Cargo.toml	2017-07-21T13:02:45.495328+02:00
+@@ -25,9 +25,6 @@
+ name = "bench"
+ path = "benches/bench.rs"
+ harness = false
+-[dependencies.simd]
+-version = "0.2.0"
+-optional = true
+ [dev-dependencies.quickcheck]
+ version = "0.4.1"
+ 
+@@ -36,7 +33,3 @@
+ 
+ [dev-dependencies.bencher]
+ version = "0.1.2"
+-
+-[features]
+-avx-accel = ["simd-accel"]
+-simd-accel = ["simd"]

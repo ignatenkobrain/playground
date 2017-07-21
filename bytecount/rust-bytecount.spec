@@ -5,8 +5,8 @@
 %global crate bytecount
 
 Name:           rust-%{crate}
-Version:        0.1.6
-Release:        3%{?dist}
+Version:        0.1.7
+Release:        1%{?dist}
 Summary:        Count occurrences of a byte in a byte slice, fast
 
 License:        ASL 2.0 or MIT
@@ -14,17 +14,16 @@ URL:            https://crates.io/crates/bytecount
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # * simd is not what we want
-# * Bump quickcheck to 0.4, https://github.com/llogiq/bytecount/commit/67868286c8750e1299eb310be17657bb5822eaed
-Patch0:         bytecount-0.1.6-fix-metadata.diff
+Patch0:         bytecount-0.1.7-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging
 %if %{with check}
 # [dev-dependencies]
-BuildRequires:  (crate(bencher) >= 0.1.0 with crate(bencher) < 0.2.0)
-BuildRequires:  (crate(quickcheck) >= 0.4.0 with crate(quickcheck) < 0.5.0)
-BuildRequires:  (crate(rand) >= 0.3.14 with crate(rand) < 0.4.0)
+BuildRequires:  (crate(bencher) >= 0.1.2 with crate(bencher) < 0.2.0)
+BuildRequires:  (crate(quickcheck) >= 0.4.1 with crate(quickcheck) < 0.5.0)
+BuildRequires:  (crate(rand) >= 0.3.15 with crate(rand) < 0.4.0)
 %endif
 
 %description
@@ -61,6 +60,9 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Jul 21 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.7-1
+- Update to 0.1.7
+
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.6-3
 - Relax quickcheck version
 
