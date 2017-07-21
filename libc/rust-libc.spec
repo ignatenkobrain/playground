@@ -5,7 +5,7 @@
 %global crate libc
 
 Name:           rust-%{crate}
-Version:        0.2.25
+Version:        0.2.26
 Release:        1%{?dist}
 Summary:        Library for types and bindings to native C functions
 
@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/libc
 Source0:        https://crates.io/api/v1/crates/%{crate}/%{version}/download#/%{crate}-%{version}.crate
 # Initial patched metadata
 # No workspaces, https://github.com/rust-lang/cargo/issues/3642
-Patch0:         libc-0.2.25-fix-metadata.diff
+Patch0:         libc-0.2.26-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -56,6 +56,9 @@ rm -vrf {.gitignore,.travis.yml,appveyor.yml,ci}
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Jul 21 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.26-1
+- Update to 0.2.26
+
 * Fri Jul 07 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.25-1
 - Update to 0.2.25
 
