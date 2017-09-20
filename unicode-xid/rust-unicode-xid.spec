@@ -7,7 +7,7 @@
 Name:           rust-%{crate}
 Version:        0.1.0
 Release:        1%{?dist}
-Summary:        Determine whether characters have XID_Start/XID_Continue properties according to Unicode Standard Annex #31
+Summary:        Determine whether characters have XID_Start/XID_Continue properties
 
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/unicode-xid
