@@ -50,6 +50,7 @@ which use %{crate} from crates.io.
 %license LICENSE-MIT LICENSE-APACHE COPYRIGHT
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
+%exclude %{cargo_registry}/%{crate}-%{version}/{.gitignore,.travis.yml,scripts}
 
 %changelog
 * Thu Jun 15 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-1
