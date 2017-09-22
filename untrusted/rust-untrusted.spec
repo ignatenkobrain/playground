@@ -5,7 +5,7 @@
 %global crate untrusted
 
 Name:           rust-%{crate}
-Version:        0.5.0
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        Safe, fast, zero-panic, zero-crashing, zero-allocation parsing of untrusted inputs in Rust
 
@@ -52,5 +52,8 @@ which use %{crate} from crates.io.
 %{cargo_registry}/%{crate}-%{version}/
 
 %changelog
+* Fri Sep 22 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.6.0-1
+- Update to 0.6.0
+
 * Fri Jun 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.0-1
 - Initial package
