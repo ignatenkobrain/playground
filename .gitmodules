@@ -1,0 +1,20 @@
+[submodule "unicode-xid"]
+	path = unicode-xid
+	url = https://src.fedoraproject.org/rpms/rust-unicode-xid.git
+	branch = master
+[submodule "scoped-tls"]
+	path = scoped-tls
+	url = https://src.fedoraproject.org/rpms/rust-scoped-tls.git
+	branch = master
+[submodule "semver-parser"]
+	path = semver-parser
+	url = https://src.fedoraproject.org/rpms/rust-semver-parser.git
+	branch = master
+[submodule "termcolor"]
+	path = termcolor
+	url = https://src.fedoraproject.org/rpms/rust-termcolor.git
+	branch = master
+[submodule "untrusted"]
+	path = untrusted
+	url = https://src.fedoraproject.org/rpms/rust-untrusted.git
+	branch = master
