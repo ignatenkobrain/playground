@@ -7,7 +7,7 @@
 Name:           rust-%{crate}
 Version:        0.6.0
 Release:        1%{?dist}
-Summary:        Safe, fast, zero-panic, zero-crashing, zero-allocation parsing of untrusted inputs in Rust
+Summary:        Safe and fast parsing of untrusted inputs in Rust
 
 License:        ISC
 URL:            https://crates.io/crates/untrusted
