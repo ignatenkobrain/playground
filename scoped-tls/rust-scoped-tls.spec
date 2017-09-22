@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Implementation of the standard library's old `scoped_thread_local!` macro
 
 License:        MIT or ASL 2.0
@@ -51,7 +51,11 @@ which use %{crate} from crates.io.
 %license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
+%exclude %{cargo_registry}/%{crate}-%{version}/appveyor.yml
 
 %changelog
+* Fri Sep 22 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-2
+- Exclude appveyor.yml file
+
 * Fri Jun 16 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.1.0-1
 - Initial package
