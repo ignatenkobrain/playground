@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Basic crate to encode values to hexadecimal representation
 
 License:        MIT or ASL 2.0
@@ -49,8 +49,12 @@ which use %{crate} from crates.io.
 %license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
+%exclude %{cargo_registry}/%{crate}-%{version}/{rust-hex.sublime-*,toto.rs}
 
 %changelog
+* Sat Sep 23 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-3
+- Exclude unneeded files
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.0-2
 - Port to use rust-packaging
 
