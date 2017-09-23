@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.3.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Lightweight logging facade for Rust
 
 License:        MIT or ASL 2.0
@@ -49,8 +49,12 @@ which use %{crate} from crates.io.
 %license LICENSE-MIT LICENSE-APACHE
 %doc README.md
 %{cargo_registry}/%{crate}-%{version}/
+%exclude %{cargo_registry}/%{crate}-%{version}/appveyor.yml
 
 %changelog
+* Sat Sep 23 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.8-2
+- Exclude appveyor.yml
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.3.8-1
 - Update to 0.3.8
 
