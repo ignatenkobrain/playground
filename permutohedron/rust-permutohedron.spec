@@ -6,7 +6,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Generate permutations of sequences
 
 # https://github.com/bluss/permutohedron/issues/5
@@ -50,8 +50,12 @@ which use %{crate} from crates.io.
 %files          devel
 %doc README.rst
 %{cargo_registry}/%{crate}-%{version}/
+%exclude %{cargo_registry}/%{crate}-%{version}/{Makefile,custom.css}
 
 %changelog
+* Sat Sep 23 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.2-3
+- Remove unneeded files
+
 * Wed Jun 14 2017 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.2.2-2
 - Port to use rust-packaging
 
